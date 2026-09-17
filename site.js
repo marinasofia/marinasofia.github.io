@@ -3,7 +3,7 @@ const root = document.documentElement;
 const themeButton = document.querySelector('#theme-toggle');
 let theme = 'light';
 try {
-  const saved = localStorage.getItem('portfolio-theme');
+  const saved = localStorage.getItem('portfolio-theme-v2');
   if (saved === 'dark' || saved === 'light') theme = saved;
 } catch {}
 function applyTheme() {
@@ -15,7 +15,7 @@ function applyTheme() {
     themeButton.setAttribute('aria-pressed', String(theme === 'dark'));
   }
   const color = document.querySelector('meta[name="theme-color"]');
-  if (color) color.content = theme === 'dark' ? '#171e1a' : '#f6f4ee';
+  if (color) color.content = theme === 'dark' ? '#171e1a' : '#ffffff';
 }
 applyTheme();
 if (themeButton) {
@@ -23,7 +23,7 @@ if (themeButton) {
   themeButton.addEventListener('click', () => {
     theme = theme === 'dark' ? 'light' : 'dark';
     applyTheme();
-    try { localStorage.setItem('portfolio-theme', theme); } catch {}
+    try { localStorage.setItem('portfolio-theme-v2', theme); } catch {}
   });
 }
 
@@ -118,7 +118,7 @@ if (entrance) {
         {opacity:1,transform:`translate(${x*.62}px,${y*.7}px) rotate(${index%2 ? -12 : 14}deg) scale(1.05)`,filter:'blur(0px)',offset:.5},
         {opacity:1,transform:'translate(0,5px) rotate(0deg) scale(1)',filter:'blur(0px)',offset:.9},
         {opacity:1,transform:'translate(0,0) rotate(0deg) scale(1)',filter:'blur(0px)'}
-      ], {duration:800,delay:1100 + (index % 6)*18,easing:'ease-in-out'});
+      ], {duration:800,delay:1160 + (index % 6)*12,easing:'ease-in-out'});
     });
     const symbols = ['{','}','a','b','01','?','↗','x','y','∑','/','m'];
     for (let index = 0; index < 24; index++) {
@@ -134,7 +134,7 @@ if (entrance) {
         {opacity:0,transform:'translate(0,0) scale(.2)'},
         {opacity:.3,transform:`translate(${dx*.65}px,${dy*.65}px) rotate(${index*17}deg) scale(1)`,offset:.4},
         {opacity:0,transform:`translate(${dx}px,${dy+110}px) rotate(${index*25}deg) scale(.65)`}
-      ],{duration:700,delay:1050+index%6*18,easing:'ease-out'});
+      ],{duration:700,delay:1150+index%6*12,easing:'ease-out'});
     }
   }
   function enterWorld() {
@@ -156,14 +156,15 @@ if (entrance) {
     stage.style.transformOrigin = `${frame.left+frame.width/2-stageBox.left}px ${frame.top+frame.height/2-stageBox.top}px`;
     const zoom = Math.max(innerWidth/frame.width,innerHeight/frame.height)*1.4;
     buildLetters();
-    entrance.classList.add('is-opening');
-    status.textContent = 'Come on in.';
+    entrance.classList.add('is-unlocking');
+    status.textContent = 'Unlocking...';
+    timers.push(setTimeout(() => entrance.classList.add('is-opening'), 300));
     animate(stage,[
       {transform:'scale(1)',opacity:1},
       {transform:'scale(1.06)',opacity:1,offset:.12},
       {transform:`scale(${zoom})`,opacity:1}
-    ],{duration:850,delay:220,easing:'cubic-bezier(.6,.02,.28,1)'});
-    animate(entrance,[{opacity:1},{opacity:0}],{duration:300,delay:1050,easing:'ease-in-out'});
+    ],{duration:650,delay:500,easing:'cubic-bezier(.6,.02,.28,1)'});
+    animate(entrance,[{opacity:1},{opacity:0}],{duration:280,delay:1130,easing:'ease-in-out'});
     timers.push(setTimeout(() => work.classList.add('work-visible'),1350));
     timers.push(setTimeout(revealWork,2100));
   }

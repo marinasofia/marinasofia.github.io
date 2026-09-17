@@ -55,6 +55,10 @@ Browser validation covered desktop and 390px layouts, landing completion, entry 
 
 ## Doorway transition
 
-Clicking Open my world swings the door open, zooms through an empty black doorway, and animates loose letters into the actual project heading. The transition takes approximately two seconds. Letters use measured text positions to prevent a final layout jump. Escape, a viewport resize, or a reduced-motion preference finishes the transition immediately and restores focus and scrolling. Paused-motion users enter directly. Temporary animation elements are removed afterward.
+Clicking Unlock my world turns a metallic key, swings the door open, zooms through an empty black doorway, and animates loose letters into the actual project heading. The transition takes approximately two seconds. Letters use measured text positions to prevent a final layout jump. Escape, a viewport resize, or a reduced-motion preference finishes the transition immediately and restores focus and scrolling. Paused-motion users enter directly. Temporary animation elements are removed afterward.
 
 Validation included normal-speed entry, frozen intermediate animation frames, a 390px mobile layout, Escape cleanup, JavaScript syntax, and retention of the public resume without a phone number.
+
+## White studio presentation
+
+The entrance uses a white background, softly colored moving doors, system typography, and a key-unlocking animation. The content defaults to white. Theme preferences use a new storage key so an older saved dark preference does not override the refreshed default. Visitors can still explicitly choose dark mode. Desktop and 390px mobile checks covered the white theme, complete entry animation, scroll restoration, and horizontal overflow.
