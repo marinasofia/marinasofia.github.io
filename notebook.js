@@ -47,7 +47,7 @@
     cover.tabIndex=-1;picker.inert=false;left.inert=false;
     close.hidden=false;hint.hidden=true;
     if(reduced.matches){finishDrawing();picker.querySelector('button').focus({preventScroll:true});}
-    else timer=setTimeout(()=>{draw();if(document.activeElement===cover)picker.querySelector("button").focus({preventScroll:true});},650);
+    else timer=setTimeout(()=>{draw();if(document.activeElement===cover)picker.querySelector("button").focus({preventScroll:true});},950);
   }
   function closeBook(){
     opened=false;cancelAnimationFrame(frame);clearTimeout(timer);
