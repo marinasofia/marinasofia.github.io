@@ -21,3 +21,7 @@ node_modules/
 /coverage/
 /playwright-report/
 /test-results/
+
+# Local validation artifacts
+__pycache__/
+*.py[cod]

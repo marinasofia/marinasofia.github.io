@@ -18,7 +18,6 @@
 
 ### Changed
 
-- Rename the job-matching project and its repository links to Sourcer.
 
 
 ### Added

@@ -331,35 +331,3 @@ document.querySelectorAll('[data-demo="rekindle"]').forEach((demo) => {
   demo.querySelectorAll('[data-scenario]').forEach((button) => button.addEventListener('click',() => setScenario(button.dataset.scenario)));
   setScenario('steady');
 });
-
-document.querySelectorAll('[data-demo="sourcer"]').forEach((demo) => {
-  const examples = {
-    ai: {
-      jobs:[{title:'AI Engineering Intern',company:'Example Labs',tags:['Python','RAG','FastAPI']},{title:'Junior Solutions Engineer',company:'Sample Systems',tags:['API integration','User training']}],
-      draft:'I build AI tools with Python, FastAPI, and retrieval workflows. My experience includes document search, financial data extraction, and explaining technical tools to nontechnical users.'
-    },
-    data: {
-      jobs:[{title:'Data Analyst Intern',company:'Sample Health',tags:['SQL','Tableau','ETL']},{title:'Business Intelligence Intern',company:'Example Analytics',tags:['Data quality','Reporting']}],
-      draft:'My experience includes improving clinical ETL pipelines and building Tableau dashboards for senior leaders. I also work with SQL, data validation, and CRM data quality.'
-    }
-  };
-  let focus = 'ai';
-  const jobs = demo.querySelector('.sample-jobs');
-  const content = demo.querySelector('.draft-content');
-  const prepare = demo.querySelector('.draft-button');
-  function update() {
-    jobs.innerHTML = examples[focus].jobs.map((job) => `<article class="sample-job"><h4>${job.title}</h4><p>${job.company} · Fictional opening</p><div class="match-chips">${job.tags.map((tag) => `<span>${tag}</span>`).join('')}</div></article>`).join('');
-    content.innerHTML = '<h4>Make the connection clear.</h4><p>Prepare a short introduction using the experience relevant to these sample roles.</p>';
-    prepare.textContent = 'Prepare sample draft ↗';
-    demo.querySelectorAll('[data-focus]').forEach((button) => button.setAttribute('aria-pressed',String(button.dataset.focus === focus)));
-  }
-  demo.querySelectorAll('[data-focus]').forEach((button) => button.addEventListener('click', () => {
-    focus = button.dataset.focus;
-    update();
-  }));
-  prepare.addEventListener('click', () => {
-    content.innerHTML = `<h4>A grounded introduction.</h4><p>${examples[focus].draft}</p><span class="source-status">✓ Based on portfolio experience</span>`;
-    prepare.textContent = 'Refresh draft ↺';
-  });
-  update();
-});
