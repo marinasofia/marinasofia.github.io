@@ -1,0 +1,43 @@
+extends: existence
+message: "'%s' reads as generated or marketing copy. Say what it does."
+level: error
+ignorecase: true
+tokens:
+  - delve
+  - seamless(ly)?
+  - robust
+  - leverag(e|es|ed|ing)
+  - cutting[- ]edge
+  - game[- ]changer
+  - unlock(s|ed|ing)?
+  - empower(s|ed|ing)?
+  - elevat(e|es|ed|ing)
+  - harness(es|ed|ing)?
+  - tapestry
+  - testament
+  - realm
+  - landscape
+  - in today's
+  - worth noting
+  - furthermore
+  - moreover
+  - crucial
+  - pivotal
+  - vibrant
+  - meticulous(ly)?
+  - effortless(ly)?
+  - revolutioni[sz](e|es|ed|ing)
+  - supercharg(e|es|ed|ing)
+  - streamlin(e|es|ed|ing)
+  - holistic
+  - synerg(y|ies)
+  - world[- ]class
+  - state[- ]of[- ]the[- ]art
+  - next[- ]generation
+  - innovative
+  - magic(al)?
+  - powerful
+  - smart
+  - intelligent
+  - journey
+  - passionate

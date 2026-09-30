@@ -1,0 +1,27 @@
+name: Validate portfolio
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+      - run: node --check site.js
+      - run: python -m unittest discover -s tests -v
+      - name: Install Vale 3.23.0 (checksum pinned)
+        run: |
+          curl -sSLo vale.tar.gz https://github.com/vale-cli/vale/releases/download/v3.23.0/vale_3.23.0_Linux_64-bit.tar.gz
+          echo "cc35445a45186b8f0b01e11c01359694cf941e72cf6ab0fc44774f0e54c9d5fc  vale.tar.gz" | sha256sum -c -
+          tar -xzf vale.tar.gz vale
+      - name: Lint copy
+        run: ./vale index.html README.md

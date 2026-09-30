@@ -1,0 +1,6 @@
+extends: existence
+message: "Exclamation marks read as hype."
+level: warning
+nonword: true
+tokens:
+  - '!'

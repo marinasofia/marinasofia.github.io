@@ -1,0 +1,8 @@
+extends: existence
+message: "No em dashes, en dashes or spaced hyphens as punctuation. Use a comma, colon or period."
+level: error
+nonword: true
+tokens:
+  - '—'
+  - '–'
+  - '\s-\s'
