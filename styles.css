@@ -842,16 +842,6 @@ main { overflow-x: clip; }
   color: #f4f4f1;
 }
 .counter-card .section-lede { color: #b9bcc2; margin-top: 0; }
-.counter-mail {
-  font-weight: 800;
-  font-size: clamp(1.5rem, 4.4vw, 3.6rem);
-  font-variation-settings: "opsz" 72, "wdth" 78;
-  letter-spacing: -0.03em;
-  text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 8px;
-  overflow-wrap: anywhere;
-  transition: color 200ms;
-}
-.counter-mail:hover { text-decoration-thickness: 4px; }
 .counter-links { display: flex; gap: 24px; font-weight: 600; }
 .counter-links a { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
 .counter-links a:hover { text-decoration: underline; text-underline-offset: 5px; }
