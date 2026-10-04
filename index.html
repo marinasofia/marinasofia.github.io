@@ -306,7 +306,7 @@
         </ol></div>
         <div class="side"><h3>Side B</h3><ol>
             <li><a href="#rekindle-b1" data-track="4"><span class="tno">B1</span><span class="tname">Human oversight</span></a></li>
-            <li><a href="#rekindle-b2" data-track="5"><span class="tno">B2</span><span class="tname">Product and team</span></a></li>
+            <li><a href="#rekindle-b2" data-track="5"><span class="tno">B2</span><span class="tname">The product</span></a></li>
             <li><a href="#rekindle-b3" data-track="6"><span class="tno">B3</span><span class="tname">Scope and status</span></a></li>
             <li><a href="#rekindle-bonus" data-track="7"><span class="tno">Bonus</span><span class="tname">Sample run</span></a></li>
         </ol></div>
@@ -315,7 +315,7 @@
         <section class="track" id="rekindle-a1" data-track="0" aria-labelledby="rekindle-a1-h">
           <h3 id="rekindle-a1-h"><span class="tno">A1</span>Overview</h3>
           <p class="record-lede">A relationship-management app that tracks contacts, scores which relationships are drifting, and texts its user first in iMessage: briefs before meetings, follow-ups after events, and nudges timed by a relationship decay model.</p>
-          <dl class="facts"><div class="fact"><dt>4</dt><dd>relationship signals time each nudge</dd></div><div class="fact"><dt>2 a day</dt><dd>maximum check-ins, never in quiet hours</dd></div><div class="fact"><dt>0.906</dt><dd>ROC-AUC of the team decay model behind check-in timing</dd></div></dl>
+          <dl class="facts"><div class="fact"><dt>4</dt><dd>relationship signals time each nudge</dd></div><div class="fact"><dt>2 a day</dt><dd>maximum check-ins, never in quiet hours</dd></div><div class="fact"><dt>0.906</dt><dd>ROC-AUC of the decay model behind check-in timing</dd></div></dl>
           <div class="overview-actions"><button class="btn btn--solid" type="button" data-goto="bonus">Flip to the sample run</button><button class="btn btn--ghost" type="button" data-goto="next">How it works</button></div>
         </section>
         <section class="track" id="rekindle-a2" data-track="1" aria-labelledby="rekindle-a2-h">
@@ -335,8 +335,8 @@
           <div class="track-body"><p>Rekindle texts only its user. Every message it sends goes back to the user&#39;s own linked thread, and drafts for contacts are written to copy, so the user always sends. Check-ins pause with a single text. The webhook verifies every signature and never logs message text, and conversation history is purged after <span class="typed">14</span> days.</p></div>
         </section>
         <section class="track" id="rekindle-b2" data-track="5" aria-labelledby="rekindle-b2-h">
-          <h3 id="rekindle-b2-h"><span class="tno">B2</span>Product and team</h3>
-          <div class="track-body"><p>ReKindle has two founders. The product includes the web app, the iMessage agent, a macOS companion, a Chrome extension for LinkedIn, Gmail, Google Calendar and Slack sync, searchable context memory, and a relationship decay model that scored ROC-AUC <span class="typed">0.906</span> on a held-out test of <span class="typed">112,000</span> snapshots. The model rescores every linked user daily and feeds check-in timing.</p><p>Per-writer tone calibration is applied only when it predicts next-day conversation continuation at least as well as raw tone scores: within <span class="typed">0.01</span> AUC, with at least <span class="typed">50</span> examples. Review actions tune the context model&#39;s acceptance threshold within <span class="typed">0.70</span> to <span class="typed">0.95</span>.</p></div>
+          <h3 id="rekindle-b2-h"><span class="tno">B2</span>The product</h3>
+          <div class="track-body"><p>The product includes the web app, the iMessage agent, a macOS companion, a Chrome extension for LinkedIn, Gmail, Google Calendar and Slack sync, searchable context memory, and a relationship decay model that scored ROC-AUC <span class="typed">0.906</span> on a held-out test of <span class="typed">112,000</span> snapshots. The model rescores every linked user daily and feeds check-in timing.</p><p>Per-writer tone calibration is applied only when it predicts next-day conversation continuation at least as well as raw tone scores: within <span class="typed">0.01</span> AUC, with at least <span class="typed">50</span> examples. Review actions tune the context model&#39;s acceptance threshold within <span class="typed">0.70</span> to <span class="typed">0.95</span>.</p></div>
         </section>
         <section class="track" id="rekindle-b3" data-track="6" aria-labelledby="rekindle-b3-h">
           <h3 id="rekindle-b3-h"><span class="tno">B3</span>Scope and status</h3>
