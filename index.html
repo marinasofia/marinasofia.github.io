@@ -295,7 +295,7 @@
     <article class="record" id="rekindle" data-mood="rekindle" data-song="assets/music/rekindle.m4a?v=20260930-vinyl5" aria-labelledby="rekindle-title">
       <header class="record-head">
         <h2 id="rekindle-title" class="record-title">ReKindle</h2>
-        <p class="record-role">Co-founder, built the iMessage agent</p>
+        <p class="record-role">Co-founder, built the iMessage agent and sentiment model</p>
       </header>
       <nav class="tracklist" aria-label="ReKindle track list">
         <div class="side"><h3>Side A</h3><ol>
@@ -336,7 +336,7 @@
         </section>
         <section class="track" id="rekindle-b2" data-track="5" aria-labelledby="rekindle-b2-h">
           <h3 id="rekindle-b2-h"><span class="tno">B2</span>The product</h3>
-          <div class="track-body"><p>The product includes the web app, the iMessage agent, a macOS companion, a Chrome extension for LinkedIn, Gmail, Google Calendar and Slack sync, searchable context memory, and a relationship decay model that scored ROC-AUC <span class="typed">0.906</span> on a held-out test of <span class="typed">112,000</span> snapshots. The model rescores every linked user daily and feeds check-in timing.</p><p>Per-writer tone calibration is applied only when it predicts next-day conversation continuation at least as well as raw tone scores: within <span class="typed">0.01</span> AUC, with at least <span class="typed">50</span> examples. Review actions tune the context model&#39;s acceptance threshold within <span class="typed">0.70</span> to <span class="typed">0.95</span>.</p></div>
+          <div class="track-body"><p>The product includes the web app, the iMessage agent, a macOS companion, a Chrome extension for LinkedIn, Gmail, Google Calendar and Slack sync, searchable context memory, and a relationship decay model that scored ROC-AUC <span class="typed">0.906</span> on a held-out test of <span class="typed">112,000</span> snapshots. The model rescores every linked user daily and feeds check-in timing.</p><p>The sentiment model scores positive, negative and ambiguous tone as three independent values instead of one label, so a message can be warm and uncertain at once. It is trained on real conversation text with sarcasm supervision, calibrated per channel on real email, ships only after passing pre-registered quality gates, and runs behind a hosted scoring API that never logs message text.</p><p>Per-writer tone calibration is applied only when it predicts next-day conversation continuation at least as well as raw tone scores: within <span class="typed">0.01</span> AUC, with at least <span class="typed">50</span> examples. Review actions tune the context model&#39;s acceptance threshold within <span class="typed">0.70</span> to <span class="typed">0.95</span>.</p></div>
         </section>
         <section class="track" id="rekindle-b3" data-track="6" aria-labelledby="rekindle-b3-h">
           <h3 id="rekindle-b3-h"><span class="tno">B3</span>Scope and status</h3>
@@ -374,7 +374,7 @@
           <div class="note-row"><dt>Catalog</dt><dd class="mono">MM-002</dd></div>
           <div class="note-row"><dt>Role</dt><dd>Co-founder</dd></div>
           <div class="note-row"><dt>Status</dt><dd>Active development</dd></div>
-          <div class="note-row note-row--wide"><dt>My part</dt><dd>iMessage agent, proactive check-ins, relationship signals, tone calibration, shared protocol schemas</dd></div>
+          <div class="note-row note-row--wide"><dt>My part</dt><dd>iMessage agent, sentiment model, proactive check-ins, relationship signals, tone calibration, shared protocol schemas</dd></div>
           <div class="note-row note-row--wide"><dt>Stack</dt><dd>TypeScript, React, Supabase edge functions, Linq iMessage API, Claude, Swift (macOS companion)</dd></div>
           <div class="note-row note-row--wide"><dt>Music</dt><dd>&ldquo;Local Forecast (Slower)&rdquo; by Kevin MacLeod (<a href="https://incompetech.com">incompetech.com</a>), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0</a></dd></div>
         </dl>
