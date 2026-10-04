@@ -14,7 +14,7 @@
 <link rel="preload" href="assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css?v=20260930-vinyl5">
 <script>document.documentElement.classList.add('js')</script>
-<script defer src="site.js?v=20260930-vinyl5"></script>
+<script defer src="site.js?v=20261003-agents"></script>
 </head>
 <body>
 <svg class="sprite" aria-hidden="true" focusable="false">
@@ -56,7 +56,7 @@
           <span class="sleeve-art cover cover--sourcer" aria-hidden="true">
             <span class="cover-cat">MM-001</span>
             <span class="cover-title">Sourcer</span>
-            <span class="cover-kind">Job-posting pipeline</span>
+            <span class="cover-kind">Job search agent</span>
             <span class="cover-hole"></span>
             <span class="note">most postings never reach the model</span>
             <span class="burst">Solo build</span>
@@ -73,7 +73,7 @@
             <span class="cover-title">ReKindle</span>
             <span class="cover-kind">Networking agent</span>
             <span class="cover-hole"></span>
-            <span class="note">sends only after you say YES</span>
+            <span class="note">texts you first, you send</span>
             <span class="burst">Co-founder build</span>
           </span>
           <span class="sleeve-disc"><div class="disc" style="--grooves: radial-gradient(circle closest-side, transparent 92.07%, var(--gap) 92.07% 93.07%, transparent 93.07%), radial-gradient(circle closest-side, transparent 74.13%, var(--gap) 74.13% 75.13%, transparent 75.13%), radial-gradient(circle closest-side, transparent 65.85%, var(--gap) 65.85% 66.85%, transparent 66.85%), radial-gradient(circle closest-side, transparent 62.75%, var(--gap) 62.75% 63.75%, transparent 63.75%), radial-gradient(circle closest-side, transparent 53.61%, var(--gap) 53.61% 54.61%, transparent 54.61%), radial-gradient(circle closest-side, transparent 50.85%, var(--gap) 50.85% 51.85%, transparent 51.85%)">
@@ -104,7 +104,7 @@
             <span class="cover-kind">Reconciled data</span>
             <span class="cover-hole"></span>
             <span class="note">the totals have to add up</span>
-            <span class="burst">Agent pipeline</span>
+            <span class="burst">Repair agent</span>
           </span>
           <span class="sleeve-disc"><div class="disc" style="--grooves: radial-gradient(circle closest-side, transparent 88.00%, var(--gap) 88.00% 89.00%, transparent 89.00%), radial-gradient(circle closest-side, transparent 73.11%, var(--gap) 73.11% 74.11%, transparent 74.11%), radial-gradient(circle closest-side, transparent 66.98%, var(--gap) 66.98% 67.98%, transparent 67.98%), radial-gradient(circle closest-side, transparent 62.39%, var(--gap) 62.39% 63.39%, transparent 63.39%), radial-gradient(circle closest-side, transparent 58.23%, var(--gap) 58.23% 59.23%, transparent 59.23%), radial-gradient(circle closest-side, transparent 53.63%, var(--gap) 53.63% 54.63%, transparent 54.63%)">
         <div class="label"><svg class="label-text" viewBox="0 0 100 100" aria-hidden="true">
@@ -132,8 +132,8 @@
     <ol class="glance-list">
       <li class="glance-row" data-record="sourcer">
         <span class="glance-cat">MM-001</span>
-        <div class="glance-main"><h3>Sourcer</h3><p>Job-posting pipeline</p></div>
-        <p class="glance-fact"><strong>6</strong> applicant tracking systems read directly</p>
+        <div class="glance-main"><h3>Sourcer</h3><p>Job search agent</p></div>
+        <p class="glance-fact"><strong>7</strong> applicant tracking systems read directly</p>
         <div class="glance-actions">
           <a class="btn btn--ghost btn--small" href="#sourcer" data-read="sourcer">Read</a>
           <a class="btn btn--solid btn--small" href="#sourcer" data-play="sourcer"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>Play</a>
@@ -142,7 +142,7 @@
       <li class="glance-row" data-record="rekindle">
         <span class="glance-cat">MM-002</span>
         <div class="glance-main"><h3>ReKindle</h3><p>Networking agent</p></div>
-        <p class="glance-fact"><strong>YES</strong> required before any message is sent</p>
+        <p class="glance-fact"><strong>0.906</strong> ROC-AUC decay model helps time check-ins</p>
         <div class="glance-actions">
           <a class="btn btn--ghost btn--small" href="#rekindle" data-read="rekindle">Read</a>
           <a class="btn btn--solid btn--small" href="#rekindle" data-play="rekindle"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>Play</a>
@@ -151,7 +151,7 @@
       <li class="glance-row" data-record="knowledge">
         <span class="glance-cat">MM-003</span>
         <div class="glance-main"><h3>Knowledge Assistant</h3><p>Cited answers</p></div>
-        <p class="glance-fact"><strong>37/39</strong> expected sources found by keyword search</p>
+        <p class="glance-fact"><strong>10/10</strong> unanswerable test questions correctly refused</p>
         <div class="glance-actions">
           <a class="btn btn--ghost btn--small" href="#knowledge" data-read="knowledge">Read</a>
           <a class="btn btn--solid btn--small" href="#knowledge" data-play="knowledge"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>Play</a>
@@ -160,7 +160,7 @@
       <li class="glance-row" data-record="statement">
         <span class="glance-cat">MM-004</span>
         <div class="glance-main"><h3>Statement Agent</h3><p>Reconciled data</p></div>
-        <p class="glance-fact"><strong>4</strong> extraction attempts at most</p>
+        <p class="glance-fact"><strong>142</strong> automated tests, no API key needed</p>
         <div class="glance-actions">
           <a class="btn btn--ghost btn--small" href="#statement" data-read="statement">Read</a>
           <a class="btn btn--solid btn--small" href="#statement" data-play="statement"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>Play</a>
@@ -224,33 +224,33 @@
       <div class="stage">
         <section class="track" id="sourcer-a1" data-track="0" aria-labelledby="sourcer-a1-h">
           <h3 id="sourcer-a1-h"><span class="tno">A1</span>Overview</h3>
-          <p class="record-lede">A job-posting pipeline that collects openings directly from company applicant tracking systems, filters them with deterministic rules, and sends only the remaining postings to a single schema-validated Claude call for parsing and scoring.</p>
-          <dl class="facts"><div class="fact"><dt>6</dt><dd>applicant tracking systems read directly</dd></div><div class="fact"><dt>1</dt><dd>model call per posting, schema checked</dd></div><div class="fact"><dt>5</dt><dd>points of ranking reviewer feedback can move</dd></div></dl>
+          <p class="record-lede">A job search agent that collects openings directly from company applicant tracking systems, filters them with deterministic rules, scores the rest in one schema-validated Claude call, and texts the best match each morning. One-word replies return the right resume, a tailored one-page PDF, or the next match, and Gmail replies keep every application up to date.</p>
+          <dl class="facts"><div class="fact"><dt>7</dt><dd>applicant tracking systems read directly</dd></div><div class="fact"><dt>1</dt><dd>model call per posting, schema checked</dd></div><div class="fact"><dt>7</dt><dd>nights a new ranker must win before it takes over</dd></div></dl>
           <div class="overview-actions"><button class="btn btn--solid" type="button" data-goto="bonus">Flip to the sample run</button><button class="btn btn--ghost" type="button" data-goto="next">How it works</button></div>
         </section>
         <section class="track" id="sourcer-a2" data-track="1" aria-labelledby="sourcer-a2-h">
           <h3 id="sourcer-a2-h"><span class="tno">A2</span>The problem</h3>
-          <div class="track-body"><p>Job boards duplicate postings, keep expired listings live, and mix senior roles into entry-level results. Classifying every posting with a language model would spend most of the budget on postings that basic rules can reject.</p></div>
+          <div class="track-body"><p>Job boards duplicate postings, keep expired listings live, and mix senior roles into entry-level results. Classifying every posting with a language model would spend most of the budget on postings that basic rules can reject.</p><p>Finding the role is only half the work. Each application needs the right resume, honest tailoring, and follow-ups, and a silent employer is easy to lose track of.</p></div>
         </section>
         <section class="track" id="sourcer-a3" data-track="2" aria-labelledby="sourcer-a3-h">
           <h3 id="sourcer-a3-h"><span class="tno">A3</span>How it works</h3>
-          <div class="track-body"><ol><li><span>Weekly: discover companies from Built In NYC, Y Combinator, HN Who is Hiring, SimplifyJobs and VC job boards. Keep companies with 20+ employees or recent verified funding.</span></li><li><span>Daily: collect postings directly from six applicant tracking systems: Greenhouse, Lever, Ashby, Workable, SmartRecruiters and Rippling.</span></li><li><span>Reject postings older than 21 days, outside New York or remote US, or requiring more than 2 years of experience.</span></li><li><span>Deduplicate, keeping the direct ATS record over aggregator copies.</span></li><li><span>Drop senior titles before any model call, and reuse existing scores for duplicate postings.</span></li><li><span>Parse and score each remaining posting in one Claude Haiku call. Validate the output against a schema, with exactly one corrective retry.</span></li><li><span>Classify level fit as fit, stretch or misfit, store results in SQLite or Snowflake, and deliver a daily Telegram digest.</span></li></ol></div>
+          <div class="track-body"><ol><li><span>Weekly: discover companies from Built In NYC, Y Combinator, HN Who is Hiring, SimplifyJobs and VC job boards. Keep companies with 20+ employees or recent verified funding.</span></li><li><span>Every weekday: collect postings directly from seven applicant tracking systems: Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Rippling and Workday.</span></li><li><span>Reject postings older than 21 days, outside New York or remote US, or requiring more than 2 years of experience, and read mandatory degree, clearance, citizenship and sponsorship lines from the description.</span></li><li><span>Deduplicate, keeping the direct ATS record over aggregator copies.</span></li><li><span>Drop senior titles before any model call, and reuse existing scores for duplicate postings.</span></li><li><span>Parse and score each remaining posting in one Claude Haiku call. Validate the output against a schema, with exactly one corrective retry.</span></li><li><span>Classify level fit as fit, stretch or misfit, and rate every posting as official, platform or unverified from its link and text. Unverified postings are never sent.</span></li><li><span>At 9:00, text the top match over iMessage with reply odds and the best-matching resume. One word acts on it: resume, tailor, skip, applied or next.</span></li><li><span>Every night, train a ranker on local embeddings, past actions and recruiter-style comparisons kept only when both orders agree. It stays in shadow mode until it beats the current score seven nights in a row.</span></li></ol></div>
         </section>
         <section class="track" id="sourcer-a4" data-track="3" aria-labelledby="sourcer-a4-h">
           <h3 id="sourcer-a4-h"><span class="tno">A4</span>Cost controls</h3>
-          <div class="track-body"><p>Bulk scoring uses the Message Batches API at half the standard price, and prompt caching reduces the cost of repeated instructions.</p><p>Reviewer feedback can move a ranking by at most <span class="typed">5</span> points, so feedback refines results without overriding the scoring.</p></div>
+          <div class="track-body"><p>The daily search runs on a Claude subscription through a locked-down Claude Code CLI with no tools, hooks or saved sessions. Backlog scoring uses the Message Batches API at half the standard price, and prompt caching reduces the cost of repeated instructions.</p><p>The ranker, embeddings and Gmail classification run locally with no model calls.</p><p>Reviewer feedback can move a ranking by at most <span class="typed">5</span> points, so feedback refines results without overriding the scoring.</p></div>
         </section>
         <section class="track" id="sourcer-b1" data-track="4" aria-labelledby="sourcer-b1-h">
           <h3 id="sourcer-b1-h"><span class="tno">B1</span>Human oversight</h3>
-          <div class="track-body"><p>The system discovers and ranks postings only. Application submission is disabled by design, and every decision to apply is made by the operator.</p></div>
+          <div class="track-body"><p>Sourcer never applies on its own. Every application starts with a one-word reply, and the operator marks it applied.</p><p>Tailoring writes only from an evidence bank of approved facts. Facts mined from commit history stay drafts until the operator approves them, and every number or tool in a bullet must appear in the evidence it cites. When a posting asks for a skill with no evidence, Sourcer asks once and saves the answer.</p></div>
         </section>
         <section class="track" id="sourcer-b2" data-track="5" aria-labelledby="sourcer-b2-h">
           <h3 id="sourcer-b2-h"><span class="tno">B2</span>Testing and evaluation</h3>
-          <div class="track-body"><p>CI enforces a <span class="typed">90%</span> test coverage threshold alongside ruff and mypy. A labelled set of postings tests parsing and scoring. Ten architecture decision records document the design tradeoffs.</p></div>
+          <div class="track-body"><p>CI enforces a <span class="typed">90%</span> test coverage threshold alongside ruff and mypy. A labelled set of postings tests parsing and scoring. The ranker is split by time, so it is always tested on postings newer than anything it trained on. Ten architecture decision records document the design tradeoffs.</p></div>
         </section>
         <section class="track" id="sourcer-b3" data-track="6" aria-labelledby="sourcer-b3-h">
           <h3 id="sourcer-b3-h"><span class="tno">B3</span>Scope and status</h3>
-          <div class="track-body"><p>Designed for a single operator, with the code and data kept in private repositories.</p></div>
+          <div class="track-body"><p>Runs every weekday for a single operator, with the code and data kept in private repositories. Each application records the exact resume sent and a snapshot of the posting. Follow-ups arrive at day 7 and 14, and Gmail replies mark it interview, assessment or rejection. After 21 quiet days it is marked ghosted.</p></div>
         </section>
         <section class="track track--bonus" id="sourcer-bonus" data-track="7" aria-labelledby="sourcer-bonus-h">
           <h3 id="sourcer-bonus-h"><span class="tno">Bonus</span>Sample run</h3>
@@ -287,7 +287,7 @@
           <div class="note-row"><dt>Built</dt><dd>Solo</dd></div>
           <div class="note-row"><dt>Status</dt><dd>v0.2.0</dd></div>
           <div class="note-row note-row--wide"><dt>Code</dt><dd>Private repository</dd></div>
-          <div class="note-row note-row--wide"><dt>Stack</dt><dd>Python, Anthropic SDK, Claude Haiku 4.5, Message Batches API, SQLite or Snowflake, MCP server</dd></div>
+          <div class="note-row note-row--wide"><dt>Stack</dt><dd>Python, Anthropic SDK, Claude Haiku 4.5, Claude Opus for tailoring, Claude Code CLI, Message Batches API, scikit-learn, fastembed, SQLite or Snowflake, MCP server, Gmail API, iMessage</dd></div>
           <div class="note-row note-row--wide"><dt>Music</dt><dd>&ldquo;Backbay Lounge&rdquo; by Kevin MacLeod (<a href="https://incompetech.com">incompetech.com</a>), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0</a></dd></div>
         </dl>
       </details>
@@ -295,14 +295,14 @@
     <article class="record" id="rekindle" data-mood="rekindle" data-song="assets/music/rekindle.m4a?v=20260930-vinyl5" aria-labelledby="rekindle-title">
       <header class="record-head">
         <h2 id="rekindle-title" class="record-title">ReKindle</h2>
-        <p class="record-role">Co-founder, built the agent relay</p>
+        <p class="record-role">Co-founder, built the iMessage agent</p>
       </header>
       <nav class="tracklist" aria-label="ReKindle track list">
         <div class="side"><h3>Side A</h3><ol>
             <li><a href="#rekindle-a1" data-track="0"><span class="tno">A1</span><span class="tname">Overview</span></a></li>
             <li><a href="#rekindle-a2" data-track="1"><span class="tno">A2</span><span class="tname">The problem</span></a></li>
-            <li><a href="#rekindle-a3" data-track="2"><span class="tno">A3</span><span class="tname">The agent relay</span></a></li>
-            <li><a href="#rekindle-a4" data-track="3"><span class="tno">A4</span><span class="tname">Tone calibration</span></a></li>
+            <li><a href="#rekindle-a3" data-track="2"><span class="tno">A3</span><span class="tname">Rekindle in iMessage</span></a></li>
+            <li><a href="#rekindle-a4" data-track="3"><span class="tno">A4</span><span class="tname">When to check in</span></a></li>
         </ol></div>
         <div class="side"><h3>Side B</h3><ol>
             <li><a href="#rekindle-b1" data-track="4"><span class="tno">B1</span><span class="tname">Human oversight</span></a></li>
@@ -314,8 +314,8 @@
       <div class="stage">
         <section class="track" id="rekindle-a1" data-track="0" aria-labelledby="rekindle-a1-h">
           <h3 id="rekindle-a1-h"><span class="tno">A1</span>Overview</h3>
-          <p class="record-lede">A relationship-management app that tracks contacts, scores how recently each relationship was active, and prompts follow-ups. As co-founder, I built the agent relay that runs it through iMessage.</p>
-          <dl class="facts"><div class="fact"><dt>YES</dt><dd>required before any message is sent</dd></div><div class="fact"><dt>5 min</dt><dd>check cycle for due follow-ups</dd></div><div class="fact"><dt>0.906</dt><dd>ROC-AUC of the team decay model</dd></div></dl>
+          <p class="record-lede">A relationship-management app that tracks contacts, scores which relationships are drifting, and texts its user first in iMessage: briefs before meetings, follow-ups after events, and nudges timed by a relationship decay model.</p>
+          <dl class="facts"><div class="fact"><dt>4</dt><dd>relationship signals time each nudge</dd></div><div class="fact"><dt>2 a day</dt><dd>maximum check-ins, never in quiet hours</dd></div><div class="fact"><dt>0.906</dt><dd>ROC-AUC of the team decay model behind check-in timing</dd></div></dl>
           <div class="overview-actions"><button class="btn btn--solid" type="button" data-goto="bonus">Flip to the sample run</button><button class="btn btn--ghost" type="button" data-goto="next">How it works</button></div>
         </section>
         <section class="track" id="rekindle-a2" data-track="1" aria-labelledby="rekindle-a2-h">
@@ -323,41 +323,41 @@
           <div class="track-body"><p>Professional contacts lapse because follow-ups depend on remembering to open a separate app at the right moment.</p></div>
         </section>
         <section class="track" id="rekindle-a3" data-track="2" aria-labelledby="rekindle-a3-h">
-          <h3 id="rekindle-a3-h"><span class="tno">A3</span>The agent relay</h3>
-          <div class="track-body"><p>A macOS companion monitors the user's iMessage note-to-self thread and forwards each message to the ReKindle agent. Responses return to the same thread, labelled as ReKindle.</p><ol><li><span>The user sends a note, such as a new contact and a follow-up date.</span></li><li><span>Every <span class="typed">5</span> minutes, the companion checks for due items: event reminders, follow-ups, reply alerts and a morning suggestion. This replaced a single daily digest.</span></li><li><span>When a follow-up is due, the agent drafts the message.</span></li><li><span>Drafts are sent through Messages from the user's own number only after an explicit YES.</span></li><li><span>Devices pair with a short code exchanged for a token stored in the macOS Keychain.</span></li></ol></div>
+          <h3 id="rekindle-a3-h"><span class="tno">A3</span>Rekindle in iMessage</h3>
+          <div class="track-body"><p>Rekindle has its own iMessage number. A user texts it, links their phone once through a one-use, fifteen-minute link, and from then on talks to the agent like any contact.</p><ol><li><span>Each text is queued and answered by a bounded tool loop that can look up who is drifting, find a contact, read their details, check upcoming events, save a note, and pause check-ins.</span></li><li><span>Rekindle also texts first: a brief <span class="typed">10</span> to <span class="typed">90</span> minutes before a meeting with saved contacts, a follow-up within a day of an event where the user met people, and a nudge when a relationship needs attention.</span></li><li><span>Check-ins skip quiet hours, cap at <span class="typed">2</span> a day, go out in the hour the user usually texts, and back off when they go unanswered.</span></li><li><span>Drafts arrive on their own lines, ready to copy and send.</span></li><li><span>The model is one setting: Claude or any Messages API compatible model can run the agent.</span></li></ol></div>
         </section>
         <section class="track" id="rekindle-a4" data-track="3" aria-labelledby="rekindle-a4-h">
-          <h3 id="rekindle-a4-h"><span class="tno">A4</span>Tone calibration</h3>
-          <div class="track-body"><p>I added per-writer tone calibration. It is applied only when it predicts next-day conversation continuation at least as well as raw tone scores: within <span class="typed">0.01</span> AUC, with at least <span class="typed">50</span> examples. Review actions also tune the context model's acceptance threshold within a range of <span class="typed">0.70</span> to <span class="typed">0.95</span>.</p></div>
+          <h3 id="rekindle-a4-h"><span class="tno">A4</span>When to check in</h3>
+          <div class="track-body"><p>Every contact gets one attention score from four signals: the decay model&#39;s risk that the relationship is going quiet, silence past the pair&#39;s own rhythm so weekly friends and quarterly mentors differ, a dip in tone blended across channels, and new connections not yet followed up. Nothing fires within <span class="typed">7</span> days of contact. Decay risk is rescored daily before check-ins are planned, and the agent&#39;s answers about who is drifting use the same scores it texts from.</p></div>
         </section>
         <section class="track" id="rekindle-b1" data-track="4" aria-labelledby="rekindle-b1-h">
           <h3 id="rekindle-b1-h"><span class="tno">B1</span>Human oversight</h3>
-          <div class="track-body"><p>The agent drafts, reminds and suggests. It never sends a message without an explicit YES from the user.</p></div>
+          <div class="track-body"><p>Rekindle texts only its user. Every message it sends goes back to the user&#39;s own linked thread, and drafts for contacts are written to copy, so the user always sends. Check-ins pause with a single text. The webhook verifies every signature and never logs message text, and conversation history is purged after <span class="typed">14</span> days.</p></div>
         </section>
         <section class="track" id="rekindle-b2" data-track="5" aria-labelledby="rekindle-b2-h">
           <h3 id="rekindle-b2-h"><span class="tno">B2</span>Product and team</h3>
-          <div class="track-body"><p>ReKindle has two founders. The product includes the web app, the macOS companion, a Chrome extension for LinkedIn, Gmail and Slack messages, and a relationship decay model that scored ROC-AUC <span class="typed">0.906</span> on a held-out test of <span class="typed">112,000</span> snapshots.</p><p>I also contributed to the shared protocol schemas, context extraction and the model pipeline demo.</p></div>
+          <div class="track-body"><p>ReKindle has two founders. The product includes the web app, the iMessage agent, a macOS companion, a Chrome extension for LinkedIn, Gmail, Google Calendar and Slack sync, searchable context memory, and a relationship decay model that scored ROC-AUC <span class="typed">0.906</span> on a held-out test of <span class="typed">112,000</span> snapshots. The model rescores every linked user daily and feeds check-in timing.</p><p>Per-writer tone calibration is applied only when it predicts next-day conversation continuation at least as well as raw tone scores: within <span class="typed">0.01</span> AUC, with at least <span class="typed">50</span> examples. Review actions tune the context model&#39;s acceptance threshold within <span class="typed">0.70</span> to <span class="typed">0.95</span>.</p></div>
         </section>
         <section class="track" id="rekindle-b3" data-track="6" aria-labelledby="rekindle-b3-h">
           <h3 id="rekindle-b3-h"><span class="tno">B3</span>Scope and status</h3>
-          <div class="track-body"><p>The agent relay is in active development. The sample thread on this page uses fictional names.</p></div>
+          <div class="track-body"><p>The iMessage agent is in active development. Turns are claimed once, a crashed turn is reclaimed after two minutes, and failures retry up to three times. A free end-to-end dry run starts an isolated stack, applies every migration, and plays a full scenario against a mock iMessage provider and a scripted model: invite, link, question, meeting brief, nudge, draft, pause. The sample thread on this page uses fictional names.</p></div>
         </section>
         <section class="track track--bonus" id="rekindle-bonus" data-track="7" aria-labelledby="rekindle-bonus-h">
           <h3 id="rekindle-bonus-h"><span class="tno">Bonus</span>Sample run</h3>
           <section class="run" data-demo="rekindle" aria-labelledby="rekindle-run-title">
         <header class="run-head"><h4 id="rekindle-run-title">Sample thread: a follow-up</h4><span>Fictional names</span></header>
         <ol class="gates">
-          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Text arrives from your note-to-self thread</span><span class="gate-out" data-out></span></li>
-          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Agent drafts the follow-up when it is due</span><span class="gate-out" data-out></span></li>
-          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Waits for your YES<span class="tag">Person</span></span><span class="gate-out" data-out></span></li>
-          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Sends through Messages from your number</span><span class="gate-out" data-out></span></li>
+          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Rekindle texts first after your event</span><span class="gate-out" data-out></span></li>
+          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Agent drafts the follow-up</span><span class="gate-out" data-out></span></li>
+          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">You copy the draft<span class="tag">Person</span></span><span class="gate-out" data-out></span></li>
+          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">You send it from your phone</span><span class="gate-out" data-out></span></li>
         </ol>
         <div class="run-body" data-body></div>
         <div class="verdict"><div class="sticker sticker--verdict" data-stamp aria-hidden="true"></div></div>
         <footer class="run-foot">
           <button class="btn btn--solid" type="button" data-run hidden>Start the thread</button>
           <button class="btn btn--ghost" type="button" data-reset hidden>Reset</button>
-          <p class="run-status" data-status aria-live="polite">The agent can draft. Only you can send.</p>
+          <p class="run-status" data-status aria-live="polite">Rekindle drafts. Only you send.</p>
         </footer>
       </section>
         </section>
@@ -374,8 +374,8 @@
           <div class="note-row"><dt>Catalog</dt><dd class="mono">MM-002</dd></div>
           <div class="note-row"><dt>Role</dt><dd>Co-founder</dd></div>
           <div class="note-row"><dt>Status</dt><dd>Active development</dd></div>
-          <div class="note-row note-row--wide"><dt>My part</dt><dd>iMessage agent relay, tone calibration, shared protocol schemas</dd></div>
-          <div class="note-row note-row--wide"><dt>Stack</dt><dd>Swift (macOS companion), TypeScript, React, Supabase</dd></div>
+          <div class="note-row note-row--wide"><dt>My part</dt><dd>iMessage agent, proactive check-ins, relationship signals, tone calibration, shared protocol schemas</dd></div>
+          <div class="note-row note-row--wide"><dt>Stack</dt><dd>TypeScript, React, Supabase edge functions, Linq iMessage API, Claude, Swift (macOS companion)</dd></div>
           <div class="note-row note-row--wide"><dt>Music</dt><dd>&ldquo;Local Forecast (Slower)&rdquo; by Kevin MacLeod (<a href="https://incompetech.com">incompetech.com</a>), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0</a></dd></div>
         </dl>
       </details>
@@ -402,8 +402,8 @@
       <div class="stage">
         <section class="track" id="knowledge-a1" data-track="0" aria-labelledby="knowledge-a1-h">
           <h3 id="knowledge-a1-h"><span class="tno">A1</span>Overview</h3>
-          <p class="record-lede">A document question-answering system for team knowledge bases. It returns the source passages behind every answer, and abstains with an explanation when the documents do not support one.</p>
-          <dl class="facts"><div class="fact"><dt>37/39</dt><dd>expected sources found by keyword search</dd></div><div class="fact"><dt>8 KB</dt><dd>evidence cap per answer</dd></div><div class="fact"><dt>23</dt><dd>automated backend tests</dd></div></dl>
+          <p class="record-lede">A policy evidence app for team knowledge bases. It returns the exact approved passage behind every answer, abstains with an explanation when no approved policy covers the question, and flags conflicting policies until an administrator sets precedence.</p>
+          <dl class="facts"><div class="fact"><dt>10/10</dt><dd>unanswerable test questions correctly refused</dd></div><div class="fact"><dt>85</dt><dd>automated backend tests</dd></div><div class="fact"><dt>8</dt><dd>end-to-end browser workflows</dd></div></dl>
           <div class="overview-actions"><button class="btn btn--solid" type="button" data-goto="bonus">Flip to the sample run</button><button class="btn btn--ghost" type="button" data-goto="next">How it works</button></div>
         </section>
         <section class="track" id="knowledge-a2" data-track="1" aria-labelledby="knowledge-a2-h">
@@ -412,23 +412,23 @@
         </section>
         <section class="track" id="knowledge-a3" data-track="2" aria-labelledby="knowledge-a3-h">
           <h3 id="knowledge-a3-h"><span class="tno">A3</span>How it works</h3>
-          <div class="track-body"><ol><li><span>Uploads are validated, stored and registered as a new document version with an ingestion job.</span></li><li><span>Workers claim jobs using Postgres row locks with a 60-second lease; a late worker cannot overwrite a newer result.</span></li><li><span>Text is split by heading into 1,200-character chunks and optionally embedded. A new version goes live only after ingestion succeeds, so a failed upload leaves the previous version searchable.</span></li><li><span>Each query first verifies workspace membership. Workspace isolation is enforced in the database.</span></li><li><span>Search defaults to Postgres full-text. Optional semantic search uses MiniLM embeddings in pgvector, combined with keyword results through reciprocal rank fusion.</span></li><li><span>Evidence is capped at 8,000 bytes and validated: answers must include citations, and abstentions must state what is missing.</span></li></ol></div>
+          <div class="track-body"><ol><li><span>Uploads are validated, stored and registered as a new document version with an ingestion job.</span></li><li><span>Workers claim jobs using Postgres row locks with a 60-second lease; a late worker cannot overwrite a newer result.</span></li><li><span>Text is split into paragraph passages under their heading path, at most 1,200 characters and never broken mid-sentence, and optionally embedded. A new version goes live only after ingestion succeeds, so a failed upload leaves the previous version searchable.</span></li><li><span>Each query first verifies workspace membership. Workspace isolation is enforced twice: in application checks and in PostgreSQL row-level security.</span></li><li><span>Search defaults to Postgres full-text. Optional semantic search uses MiniLM embeddings in pgvector, combined with keyword results through reciprocal rank fusion.</span></li><li><span>Evidence is capped at 8,000 bytes. A relevance gate abstains when the best passage covers less than 40% of the question&#39;s terms, and rule-based checks flag policies that disagree. Answers must quote exact retrieved text, and abstentions must state what is missing.</span></li></ol></div>
         </section>
         <section class="track" id="knowledge-a4" data-track="3" aria-labelledby="knowledge-a4-h">
           <h3 id="knowledge-a4-h"><span class="tno">A4</span>Retrieval evaluation</h3>
-          <div class="track-body"><p>On the recorded test corpus, keyword search retrieved <span class="typed">37 of 39</span> expected source pairs.</p><p>That makes fast keyword search the default, with semantic search available as an option.</p></div>
+          <div class="track-body"><p>Across 28 labeled development questions, keyword search scored <span class="typed">0.96</span> recall in the top five results. Hybrid semantic search was compared using MRR, nDCG and a paired randomization test and showed no significant difference (p = 0.19).</p><p>That makes fast keyword search the default, with semantic search available as an option.</p></div>
         </section>
         <section class="track" id="knowledge-b1" data-track="4" aria-labelledby="knowledge-b1-h">
           <h3 id="knowledge-b1-h"><span class="tno">B1</span>Human oversight</h3>
-          <div class="track-body"><p>Users see the source passage alongside every answer and can verify it directly. Where the documents provide no support, the system abstains rather than guessing.</p></div>
+          <div class="track-body"><p>Users see the source passage alongside every answer and can open it in its full section. Where the documents provide no support, the system abstains rather than guessing.</p><p>Users can send unresolved questions to a review queue. An administrator answers with cited passages and publishes the answer for reuse, and the answer reopens automatically when the cited policy text changes.</p></div>
         </section>
         <section class="track" id="knowledge-b2" data-track="5" aria-labelledby="knowledge-b2-h">
           <h3 id="knowledge-b2-h"><span class="tno">B2</span>Testing and evaluation</h3>
-          <div class="track-body"><p><span class="typed">23</span> automated backend tests cover document handling, access control and workspace isolation, with four end-to-end browser workflows.</p></div>
+          <div class="track-body"><p><span class="typed">85</span> automated backend tests cover document handling, access control, workspace isolation, review workflows, conflict rules and prompt injection through uploaded documents, with eight end-to-end browser workflows run in CI.</p></div>
         </section>
         <section class="track" id="knowledge-b3" data-track="6" aria-labelledby="knowledge-b3-h">
           <h3 id="knowledge-b3-h"><span class="tno">B3</span>Scope and status</h3>
-          <div class="track-body"><p>Retrieval is the default mode, with optional generated answers. The policies shown on this page are synthetic.</p></div>
+          <div class="track-body"><p>The default mode returns approved passages word for word. An optional Claude generator must return schema-valid answers in which every claim cites an exact quote. The policies shown on this page are synthetic.</p></div>
         </section>
         <section class="track track--bonus" id="knowledge-bonus" data-track="7" aria-labelledby="knowledge-bonus-h">
           <h3 id="knowledge-bonus-h"><span class="tno">Bonus</span>Sample run</h3>
@@ -438,7 +438,7 @@
           <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">You belong to this workspace</span><span class="gate-out" data-out></span></li>
           <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Keyword search over approved documents</span><span class="gate-out" data-out></span></li>
           <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Evidence capped at 8,000 bytes</span><span class="gate-out" data-out></span></li>
-          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Cite the passage or abstain</span><span class="gate-out" data-out></span></li>
+          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Cite, flag a conflict, or abstain</span><span class="gate-out" data-out></span></li>
         </ol>
         <div class="run-body" data-body></div>
         <div class="verdict"><div class="sticker sticker--verdict" data-stamp aria-hidden="true"></div></div>
@@ -460,9 +460,9 @@
         <summary>Liner notes</summary>
         <dl class="liner">
           <div class="note-row"><dt>Catalog</dt><dd class="mono">MM-003</dd></div>
-          <div class="note-row"><dt>Tests</dt><dd>23 backend, 4 end-to-end</dd></div>
+          <div class="note-row"><dt>Tests</dt><dd>85 backend, 8 end-to-end</dd></div>
           <div class="note-row"><dt>Code</dt><dd>Private repository</dd></div>
-          <div class="note-row note-row--wide"><dt>Stack</dt><dd>FastAPI, PostgreSQL, pgvector, MiniLM, Pydantic, TypeScript</dd></div>
+          <div class="note-row note-row--wide"><dt>Stack</dt><dd>FastAPI, PostgreSQL, pgvector, MiniLM, Pydantic, React, TypeScript</dd></div>
           <div class="note-row note-row--wide"><dt>Music</dt><dd>&ldquo;Deliberate Thought&rdquo; by Kevin MacLeod (<a href="https://incompetech.com">incompetech.com</a>), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0</a></dd></div>
         </dl>
       </details>
@@ -470,7 +470,7 @@
     <article class="record" id="statement" data-mood="statement" data-song="assets/music/statement.m4a?v=20260930-vinyl5" aria-labelledby="statement-title">
       <header class="record-head">
         <h2 id="statement-title" class="record-title">Statement Agent</h2>
-        <p class="record-role">Agent pipeline</p>
+        <p class="record-role">Tool-using repair agent</p>
       </header>
       <nav class="tracklist" aria-label="Statement Agent track list">
         <div class="side"><h3>Side A</h3><ol>
@@ -489,8 +489,8 @@
       <div class="stage">
         <section class="track" id="statement-a1" data-track="0" aria-labelledby="statement-a1-h">
           <h3 id="statement-a1-h"><span class="tno">A1</span>Overview</h3>
-          <p class="record-lede">A LangGraph pipeline that extracts transactions from bank statement PDFs, verifies that the totals reconcile, escalates to a stronger model when they do not, and routes unresolved statements to human review before Excel export.</p>
-          <dl class="facts"><div class="fact"><dt>4</dt><dd>extraction attempts at most</dd></div><div class="fact"><dt>11</dt><dd>synthetic test statements</dd></div><div class="fact"><dt>260</dt><dd>transaction volume fixture</dd></div></dl>
+          <p class="record-lede">A LangGraph pipeline that extracts transactions from bank statement PDFs, verifies that the totals reconcile, sends a tool-using repair agent to find and fix the cause when they do not, and routes unresolved statements to human review before Excel export.</p>
+          <dl class="facts"><div class="fact"><dt>142</dt><dd>automated tests</dd></div><div class="fact"><dt>11</dt><dd>replayed test statements</dd></div><div class="fact"><dt>260</dt><dd>transaction volume fixture</dd></div></dl>
           <div class="overview-actions"><button class="btn btn--solid" type="button" data-goto="bonus">Flip to the sample run</button><button class="btn btn--ghost" type="button" data-goto="next">How it works</button></div>
         </section>
         <section class="track" id="statement-a2" data-track="1" aria-labelledby="statement-a2-h">
@@ -499,19 +499,19 @@
         </section>
         <section class="track" id="statement-a3" data-track="2" aria-labelledby="statement-a3-h">
           <h3 id="statement-a3-h"><span class="tno">A3</span>How it works</h3>
-          <div class="track-body"><ol><li><span>Validate the file. Confirm it is a text PDF.</span></li><li><span>Extract text with pdfplumber and identify the statement format.</span></li><li><span>Extract fields into a typed schema with a lower-cost Claude model, allowing up to 2 validation attempts.</span></li><li><span>Verify arithmetically that the opening balance plus all transactions equals the closing balance.</span></li><li><span>If the totals do not reconcile, retry once with a stronger model and check again.</span></li><li><span>Finalize and export to Excel.</span></li></ol></div>
+          <div class="track-body"><ol><li><span>Validate the file. Confirm it is a text PDF.</span></li><li><span>Extract text with pdfplumber and identify the statement format.</span></li><li><span>Extract fields into a typed schema with a lower-cost Claude model, allowing up to 2 validation attempts.</span></li><li><span>Verify that the opening balance plus all transactions equals the closing balance exactly, to the cent, that dates fall inside the statement period, and that the account holder and account number appear in the document text.</span></li><li><span>If the totals do not reconcile, a repair agent searches the statement for the cause and fixes it, citing the line behind each edit. Every amount, date and description it enters must be printed on that line, and the checks, not the agent, decide whether the fix worked.</span></li><li><span>Finalize and export to Excel.</span></li></ol></div>
         </section>
         <section class="track" id="statement-a4" data-track="3" aria-labelledby="statement-a4-h">
           <h3 id="statement-a4-h"><span class="tno">A4</span>Human oversight</h3>
-          <div class="track-body"><p>An optional SQLite review queue records edit history and prevents concurrent reviewers from overwriting each other. Statements that fail reconciliation or contain flagged entries wait for human review.</p></div>
+          <div class="track-body"><p>The repair agent cannot touch the account holder or account number, and a statement that fails the identity check skips the agent entirely. It cannot finish while any check still fails, and it removes a row only with proof from the document. Whatever it cannot fix waits for a person in an optional SQLite review queue, which records every correction, agent edit and approval, and prevents concurrent reviewers from overwriting each other.</p></div>
         </section>
         <section class="track" id="statement-b1" data-track="4" aria-labelledby="statement-b1-h">
           <h3 id="statement-b1-h"><span class="tno">B1</span>Export safety</h3>
-          <div class="track-body"><p>The Excel export neutralizes cells that begin like formulas, so a malicious transaction description cannot execute when the file is opened.</p></div>
+          <div class="track-body"><p>The Excel export writes every value as a text cell, so a malicious transaction description cannot execute as a formula when the file is opened. Results are saved per file by SHA-256 fingerprint, so a crash or a rerun only processes the files that did not finish.</p></div>
         </section>
         <section class="track" id="statement-b2" data-track="5" aria-labelledby="statement-b2-h">
           <h3 id="statement-b2-h"><span class="tno">B2</span>Testing and evaluation</h3>
-          <div class="track-body"><p><span class="typed">11</span> synthetic statement fixtures, including a scanned PDF that is correctly rejected, and a <span class="typed">260</span>-transaction fixture for volume.</p></div>
+          <div class="track-body"><p><span class="typed">142</span> automated tests and <span class="typed">11</span> replayed synthetic statement fixtures run in CI with no API key, including a scanned PDF that is correctly rejected and a <span class="typed">260</span>-transaction fixture for volume. Each repair agent tool is tested on its own, and a full run fixes a fee printed outside the transaction table.</p></div>
         </section>
         <section class="track" id="statement-b3" data-track="6" aria-labelledby="statement-b3-h">
           <h3 id="statement-b3-h"><span class="tno">B3</span>Scope and status</h3>
@@ -525,8 +525,8 @@
           <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Text PDF, not a scan</span><span class="gate-out" data-out></span></li>
           <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Extract to a typed schema, fast model</span><span class="gate-out" data-out></span></li>
           <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Totals reconcile</span><span class="gate-out" data-out></span></li>
-          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Retry once with a stronger model<span class="tag">Model</span></span><span class="gate-out" data-out></span></li>
-          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">A person reviews flagged rows<span class="tag">Person</span></span><span class="gate-out" data-out></span></li>
+          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">Repair agent fixes the cited line<span class="tag">Agent</span></span><span class="gate-out" data-out></span></li>
+          <li class="gate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="gate-name">A person approves the agent&#39;s edit<span class="tag">Person</span></span><span class="gate-out" data-out></span></li>
         </ol>
         <div class="run-body" data-body></div>
         <div class="verdict"><div class="sticker sticker--verdict" data-stamp aria-hidden="true"></div></div>
@@ -548,7 +548,7 @@
         <summary>Liner notes</summary>
         <dl class="liner">
           <div class="note-row"><dt>Catalog</dt><dd class="mono">MM-004</dd></div>
-          <div class="note-row"><dt>Fixtures</dt><dd>11 synthetic</dd></div>
+          <div class="note-row"><dt>Tests</dt><dd>142, plus 11 fixtures</dd></div>
           <div class="note-row"><dt>Max attempts</dt><dd>4 per statement</dd></div>
           <div class="note-row note-row--wide"><dt>Stack</dt><dd>Python, LangGraph, Anthropic SDK, Pydantic, pdfplumber, SQLite</dd></div>
           <div class="note-row note-row--wide"><dt>Music</dt><dd>&ldquo;Lobby Time&rdquo; by Kevin MacLeod (<a href="https://incompetech.com">incompetech.com</a>), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0</a></dd></div>

@@ -317,17 +317,17 @@ const sourcer = {
       if (p.score) ctx.rows[i].querySelector('[data-result]').innerHTML = `<span class="score">${p.score}</span>`;
     });
     ctx.gate(5, 'pass', '4 sent');
-    ctx.say('8 of 12 were cut by rules that cost nothing. Fit and stretch roles go to the daily digest.');
+    ctx.say('8 of 12 were cut by rules that cost nothing. Fit and stretch roles go to the morning text.');
     await ctx.stamp('4 of 12 reached the model', 'Sample data');
   }
 };
 
-/* ---------- ReKindle: the agent drafts, the person sends ---------- */
+/* ---------- ReKindle: Rekindle drafts, the person sends ---------- */
 
 const rekindle = {
   init(ctx) {
     ctx.thread = el('div', { class: 'thread' });
-    ctx.thread.append(el('p', { class: 'msg msg--note' }, 'Your note-to-self thread in Messages'));
+    ctx.thread.append(el('p', { class: 'msg msg--note' }, 'Your thread with Rekindle in Messages'));
     ctx.body.replaceChildren(ctx.thread);
   },
   add(ctx, who, html, mod) {
@@ -336,48 +336,49 @@ const rekindle = {
     return msg;
   },
   async run(ctx) {
+    this.add(ctx, 'You', 'Met Priya Shah at the fintech meetup tonight.', 'me');
+    await ctx.sleep(600);
+    this.add(ctx, 'Rekindle', 'Saved to Priya.', 'agent');
+    await ctx.sleep(800);
+    ctx.thread.append(el('p', { class: 'msg msg--note' }, 'Next morning, 9:00'));
     ctx.gate(0, 'active');
-    this.add(ctx, 'You', 'Met Priya Shah at the fintech meetup. Remind me to follow up Thursday.', 'me');
     await ctx.sleep(700);
-    ctx.gate(0, 'pass', 'Received');
-    this.add(ctx, 'Rekindle', 'Saved. I will draft a follow-up for Thursday morning.', 'agent');
-    await ctx.sleep(900);
-    ctx.thread.append(el('p', { class: 'msg msg--note' }, 'Thursday, 9:00'));
+    this.add(ctx, 'Rekindle', 'How was the fintech meetup? You met Priya Shah. Want me to draft follow-ups while it&rsquo;s fresh?', 'agent');
+    ctx.gate(0, 'pass', 'Texted first');
+    this.add(ctx, 'You', 'Yes please', 'me');
     ctx.gate(1, 'active');
-    await ctx.sleep(700);
-    this.add(ctx, 'Rekindle', 'Follow-up for Priya is due. Draft:<blockquote>Hi Priya, good to meet you at the fintech meetup. Open to a coffee next week?</blockquote>Reply YES to send it from your number.', 'agent');
+    await ctx.sleep(800);
+    this.add(ctx, 'Rekindle', 'Draft for Priya:<blockquote>Hi Priya, good to meet you at the fintech meetup. Open to a coffee next week?</blockquote>Copy it and send when you&rsquo;re ready.', 'agent');
     ctx.gate(1, 'pass', 'Drafted');
     ctx.gate(2, 'active');
-    ctx.say('Your turn. Nothing leaves your phone without your answer.');
+    ctx.say('Your turn. Rekindle never messages your contacts.');
 
-    const yes = el('button', { class: 'btn btn--solid', type: 'button' }, 'Reply YES');
+    const copy = el('button', { class: 'btn btn--solid', type: 'button' }, 'Copy draft');
     const no = el('button', { class: 'btn btn--ghost', type: 'button' }, 'Not now');
     const choices = el('div', { class: 'choices' });
-    choices.append(yes, no);
+    choices.append(copy, no);
     ctx.thread.append(choices);
-    yes.focus({ preventScroll: true });
+    copy.focus({ preventScroll: true });
     const answer = await ctx.wait(new Promise(resolve => {
-      yes.addEventListener('click', () => resolve(true), { once: true });
+      copy.addEventListener('click', () => resolve(true), { once: true });
       no.addEventListener('click', () => resolve(false), { once: true });
     }));
     choices.remove();
 
     if (answer) {
-      this.add(ctx, 'You', 'YES', 'me');
-      ctx.gate(2, 'pass', 'YES');
+      ctx.gate(2, 'pass', 'Copied');
       ctx.gate(3, 'active');
-      await ctx.sleep(700);
-      this.add(ctx, 'Rekindle', 'Sent to Priya from your number.', 'agent');
-      ctx.gate(3, 'pass', 'Sent');
-      ctx.say('Sent through Messages, from your own number, because you said so.');
-      await ctx.stamp('Sent by you', 'After your YES');
+      await ctx.sleep(600);
+      ctx.gate(3, 'pass', 'Sent by you');
+      ctx.say('You send it yourself, from your own phone.');
+      await ctx.stamp('Sent by you', 'Rekindle only drafts');
     } else {
       this.add(ctx, 'You', 'Not now', 'me');
       ctx.gate(2, 'fail', 'Held');
       ctx.gate(3, 'skip');
       await ctx.sleep(500);
-      this.add(ctx, 'Rekindle', 'Okay. Nothing was sent.', 'agent');
-      ctx.say('The draft stays a draft. The agent never sends on its own.');
+      this.add(ctx, 'Rekindle', 'Okay. I&rsquo;ll keep it here if you want it later.', 'agent');
+      ctx.say('The draft stays a draft. Rekindle never sends on your behalf.');
       await ctx.stamp('Held', 'Nothing sent', true);
     }
   }
@@ -389,16 +390,16 @@ const QUESTIONS = [
   {
     q: 'How many days a week can I work remotely?',
     found: '3 passages', bytes: '1.1 KB',
-    answer: 'Up to two days per week, agreed with your manager.',
-    passage: 'Team members may work remotely up to <mark>two days per week</mark>, coordinated in advance with their manager.',
-    source: 'Hybrid work policy, v2, section 3'
+    passage: 'Employees may work remotely up to <mark>three days per week</mark>. Coordinate your office days with your manager.',
+    source: 'Remote work policy, Remote work'
   },
   {
     q: 'What is the daily meal limit when I travel?',
     found: '2 passages', bytes: '0.8 KB',
-    answer: '$75 per day, with itemized receipts.',
-    passage: 'Meals during approved travel are reimbursed up to <mark>$75 per day</mark>. Itemized receipts are required.',
-    source: 'Travel and expense policy, v4, section 5.2'
+    conflict: [
+      { passage: 'The domestic business travel meal allowance is <mark>$75 per day</mark>, including tax and tips.', source: 'Travel and expenses, Meal reimbursement' },
+      { passage: 'The domestic business travel meal allowance for field team employees is <mark>$90 per day</mark>, including tax and tips.', source: 'Field team handbook, Meal reimbursement' }
+    ]
   },
   {
     q: 'How much parental leave do we get?',
@@ -445,11 +446,19 @@ const knowledge = {
       ctx.gate(3, 'pass', 'Abstained');
       ctx.say('No source, no answer. It says what is missing instead of guessing.');
       await ctx.stamp('Abstained', 'No source found', true);
+    } else if (pick.conflict) {
+      ctx.slot.append(el('div', { class: 'answer is-abstain' },
+        `<span class="lbl">Conflicting policies</span>` +
+        pick.conflict.map(c => `<p>${c.passage}</p><cite>${c.source}</cite>`).join('') +
+        '<p>Flagged until an administrator sets which policy takes precedence.</p>'));
+      ctx.gate(3, 'pass', 'Conflict flagged');
+      ctx.say('Two approved policies disagree, so it shows both and flags the conflict instead of picking one.');
+      await ctx.stamp('Flagged', 'Policies disagree', true);
     } else {
       ctx.slot.append(el('div', { class: 'answer' },
-        `<span class="lbl">Answer</span><p>${pick.answer}</p><span class="lbl">Source passage</span><p>${pick.passage}</p><cite>${pick.source}</cite>`));
+        `<span class="lbl">Approved passage</span><p>${pick.passage}</p><cite>${pick.source}</cite>`));
       ctx.gate(3, 'pass', 'Cited');
-      ctx.say('The answer carries the exact passage it came from.');
+      ctx.say('The answer is the approved passage itself, word for word, with its source.');
       await ctx.stamp('Cited', pick.source);
     }
   }
@@ -461,8 +470,8 @@ const OPENING = 2400;
 const CLOSING = 1997.5;
 const LINES = [
   { date: '09/03', desc: 'Client payment', amount: 1200 },
-  { date: '09/04', desc: 'Software subscription', amount: -42, flag: true },
-  { date: '09/04', desc: 'Software subscription', amount: -42, flag: true },
+  { date: '09/04', desc: 'Software subscription', amount: -42 },
+  { date: '09/04', desc: 'Software subscription', amount: -42 },
   { date: '09/06', desc: 'Office supplies', amount: -18.5, misread: -15.8 },
   { date: '09/12', desc: 'Rent', amount: -1500 }
 ];
@@ -521,28 +530,22 @@ const statement = {
     calc.textContent = plain(this.total(right));
     calc.className = 'total is-ok';
     ctx.gate(3, 'pass', 'Reconciled');
-    ctx.say('The stronger model read $18.50, not $15.80. Now the totals match to the cent.');
+    ctx.say(`The repair agent searched the statement for the $${(wrong - CLOSING).toFixed(2)} gap, found $18.50 printed on the Office supplies line, and corrected that one row, citing the line. Now the totals match to the cent.`);
     await ctx.sleep(900);
 
     ctx.gate(4, 'active');
-    LINES.forEach((l, n) => {
-      if (!l.flag) return;
-      ctx.lines[n].classList.add('is-flag');
-      ctx.lines[n].children[1].insertAdjacentHTML('beforeend', ' <span class="flag">Review</span>');
-    });
-    ctx.say('Two identical charges on the same day. They reconcile, but a person should confirm both are real.');
-    const approve = el('button', { class: 'btn btn--solid', type: 'button' }, 'Approve both lines');
+    ctx.lines[i].classList.add('is-flag');
+    ctx.lines[i].children[1].insertAdjacentHTML('beforeend', ' <span class="flag">Agent edit</span>');
+    ctx.say('A reviewer sees the agent\'s edit next to the statement line it cites, and approves it into the history.');
+    const approve = el('button', { class: 'btn btn--solid', type: 'button' }, 'Approve the edit');
     ctx.extra(approve);
     approve.focus({ preventScroll: true });
     await ctx.wait(new Promise(resolve => approve.addEventListener('click', resolve, { once: true })));
     approve.remove();
-    LINES.forEach((l, n) => {
-      if (!l.flag) return;
-      ctx.lines[n].classList.remove('is-flag');
-      ctx.lines[n].querySelector('.flag').remove();
-    });
+    ctx.lines[i].classList.remove('is-flag');
+    ctx.lines[i].querySelector('.flag').remove();
     ctx.gate(4, 'pass', 'Approved');
-    ctx.say('Checked by arithmetic, confirmed by a person, ready for the spreadsheet.');
+    ctx.say('Checked by arithmetic, fixed from the source, approved by a person, ready for the spreadsheet.');
     await ctx.stamp('Reconciled', 'Ready for Excel');
   }
 };
