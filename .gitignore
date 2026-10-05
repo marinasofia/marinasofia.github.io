@@ -25,3 +25,11 @@ node_modules/
 # Local validation artifacts
 __pycache__/
 *.py[cod]
+
+# Secrets and local data (security kit)
+*.pem
+*.key
+*.p12
+*.sqlite
+*.db
+secrets/
