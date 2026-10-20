@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marina Martin · Data &amp; AI</title>
+<meta name="description" content="Marina Martin, data analytics and applied AI in New York. Experience, three projects with the numbers behind them, and how to reach me.">
+<meta name="theme-color" content="#f4f6f9">
+<link rel="canonical" href="https://marinasofia.github.io/lofi.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b111b'/%3E%3Ctext x='32' y='42' font-family='Georgia' font-size='28' text-anchor='middle' fill='%23ffcf99'%3EMM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Geist:wght@300..600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#f4f6f9;--ink:#141b25;--muted:#5a6676;--line:rgba(20,27,37,.14);--accent:#2c4d78;--display:"Newsreader",Georgia,serif;--sans:"Geist","Helvetica Neue",Arial,sans-serif;--mono:"Geist Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b111b;--ink:#e9edf3;--muted:#8d9ab0;--line:rgba(233,237,243,.14);--accent:#ffcf99}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--accent)}
+::selection{background:var(--accent);color:var(--bg)}
+main{max-width:720px;margin:0 auto;padding:72px 20px 96px}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.name{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.links{display:flex;gap:16px;font-family:var(--mono);font-size:12px;letter-spacing:.06em}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(40px,7vw,60px);line-height:1;letter-spacing:-.025em;margin:64px 0 0}
+h1 em{color:var(--accent)}
+.lede{font-size:19px;line-height:1.55;margin:20px 0 0;max-width:38ch;color:var(--muted)}
+h2{font-family:var(--mono);font-weight:400;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:64px 0 0;padding-bottom:10px;border-bottom:1px solid var(--line)}
+ol{list-style:none;margin:0;padding:0}
+li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;padding:16px 0;border-bottom:1px solid var(--line)}
+li b{font-family:var(--display);font-weight:400;font-size:22px;line-height:1.2;letter-spacing:-.01em}
+li time{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap;padding-top:6px}
+li p{grid-column:1/-1;margin:2px 0 0;color:var(--muted);font-size:15.5px;line-height:1.55}
+li p + p{margin-top:8px}
+.proj p strong{color:var(--ink);font-weight:500}
+.chips{font-family:var(--mono);font-size:12px;color:var(--muted)}
+footer{margin-top:72px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <span class="name">Marina Martin</span>
+  <nav class="links" aria-label="Elsewhere"><a href="index.html">3D version</a><a href="https://github.com/marinasofia">GitHub</a><a href="https://www.linkedin.com/in/marinasofiaml/">LinkedIn</a></nav>
+</header>
+
+<h1>Data and AI builder.</h1>
+<p class="lede">I like questions with a number at the end, and I trust the number only after I've tried to break it. Based in New York.</p>
+
+<h2>Projects</h2>
+<ol class="proj">
+  <li><b>Sourcer</b><time>2026</time>
+    <p>A lead engine that reads 405 company career sites every morning, rules out what doesn't fit me with plain rules, scores the rest against my profile and texts me the best match. When I apply, it tailors my resume from facts I've approved.</p>
+    <p><strong>In one run on Oct 11 it read 40,118 postings and only 1,801 got past the rules.</strong> Three decisions shaped it. A posting is ruled out only on an explicit signal, because a wrong drop is a job I never see. A hard cost cap is checked before every model call. Every model answer gets one corrective retry, never two. A test set of 322 labelled postings fails the build if any score drops. Code private, walkthrough on request.</p>
+    <p class="chips">Python · SQL · SQLite · Claude API · LangGraph · scikit-learn</p></li>
+  <li><b>Rekindle</b><time>2026</time>
+    <p>Predicts which relationships are fading and texts you first in iMessage. It drafts what to say and sends from your own number only after you reply yes. The agent asks for consent before any model call, handles STOP and PAUSE before the model sees a message, and fences off text other people wrote so a contact can't steer it.</p>
+    <p><strong>0.906 ROC AUC on people the model never saw</strong>, across 112,137 moments. A SEND rate measures which drafts get sent and answered, without storing message text.</p>
+    <p class="chips">TypeScript · Python · scikit-learn · Supabase · Postgres · Claude · iMessage</p></li>
+  <li><b>Knowledge Assistant</b><time>2026</time>
+    <p>A workspace where a team asks questions about its own policies and gets back the exact approved passage that answers them. When two policies disagree it shows both, and when nothing covers the question it refuses instead of guessing.</p>
+    <p><strong>10 of 10 unanswerable questions refused, 25 of 25 answerable ones answered</strong>, on 60 labelled questions with a held out set. Every workspace is locked twice, in the app and in Postgres row level security, with 85 backend tests, 8 browser tests and a threat model in CI. <a href="https://github.com/marinasofia/knowledge-assistant">Code on GitHub</a>.</p>
+    <p class="chips">Python · FastAPI · PostgreSQL · pgvector · React · Claude</p></li>
+</ol>
+
+<h2>Experience</h2>
+<ol>
+  <li><b>Data Analytics Resident, NYC Tech Talent Pipeline</b><time>Jun to Aug 2026</time>
+    <p>Analyzed lending, churn, healthcare and SaaS datasets in Python and SQL, built regression, forecasting and classification models, and built Tableau dashboards on ARR and churn. One of 30 residents chosen from 180 applicants.</p></li>
+  <li><b>Data &amp; AI Analyst, GHA (M&amp;A advisory)</b><time>Mar to Jun 2026</time>
+    <p>Built a HubSpot API integration that automated outreach and follow ups, cutting manual messaging time 90% across 15,000+ contacts. Designed a data governance system that tags 45,000+ CRM records, now run by three nontechnical staff.</p></li>
+  <li><b>Data Analytics Intern, Columbia University Irving Medical Center</b><time>Jun to Sep 2024</time>
+    <p>Improved SQL ETL pipelines for clinical data, cutting time to insight by 30%. Built Tableau dashboards that two senior leaders used in weekly decisions.</p></li>
+</ol>
+
+<h2>Education and recognition</h2>
+<ol>
+  <li><b>BBA, Computer Information Systems</b><time>2027</time>
+    <p>Minor in Computer Science. Dean's List.</p></li>
+  <li><b>AWS Jam, first place</b><time>Sep 2026</time>
+    <p>Team of four. Resolved simulated production issues across 20+ AWS services, finishing every challenge in 3 hours against an 8 hour estimate.</p></li>
+</ol>
+
+<h2>Contact</h2>
+<p>Hiring for a data or AI role, or want a walkthrough of any project? Send me a message on <a href="https://www.linkedin.com/in/marinasofiaml/">LinkedIn</a>. Resume on request.</p>
+
+<footer><span>New York, 2026</span><a href="index.html">Ride the 3D version</a></footer>
+</main>
+</body>
+</html>

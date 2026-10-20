@@ -1,0 +1,6 @@
+extends: existence
+message: "Contrast framing ('not just X, but Y') reads as filler. State the claim directly."
+level: error
+ignorecase: true
+raw:
+  - \bnot (just|only|merely)\b[^.]{1,60}\b(but|it's|it is)\b

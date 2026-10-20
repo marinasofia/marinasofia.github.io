@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marina Martin · Data &amp; AI</title>
+<meta name="description" content="Marina Martin, data analytics and applied AI in New York. A night train through New York with three projects on its walls: a lead engine that reads 405 career sites, a relationship app that texts you first, and a policy assistant that cites its source or refuses.">
+<meta name="theme-color" content="#0b111b">
+<meta property="og:title" content="Marina Martin · Data &amp; AI">
+<meta property="og:description" content="Data analytics and applied AI in New York. Three projects, with the numbers behind them.">
+<meta property="og:url" content="https://marinasofia.github.io/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b111b'/%3E%3Ctext x='32' y='42' font-family='Georgia' font-size='28' text-anchor='middle' fill='%23ffcf99'%3EMM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=UnifrakturMaguntia&family=Anton&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="site.css?v=20261020i">
+<noscript><meta http-equiv="refresh" content="0; url=lofi.html"></noscript>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-x" viewBox="0 0 12 12"><path d="M1 1l10 10M11 1L1 11"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 14 14"><path d="M3 1.5h5.5L11 4v8.5H3zM8.5 1.5V4H11M5 7h4M5 9.5h4"/></symbol>
+  <symbol id="i-term" viewBox="0 0 14 14"><path d="M1.5 2.5h11v9h-11zM4 6l2 1.5L4 9M7.5 9.5H10"/></symbol>
+</svg>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <div class="ld"><b>Marina Martin</b><div class="ld-bar"><i id="ldBar"></i></div><div class="ld-row"><span id="ldMsg">Stand clear of the closing doors</span><span id="ldPct">0%</span></div></div>
+</div>
+
+<header class="top">
+  <a class="brand" href="#/" data-go=""><b>Marina Martin</b><span>Data &amp; AI · New York</span></a>
+  <nav class="nav" aria-label="Main">
+    <button type="button" data-go="about">About</button>
+    <button type="button" data-go="work">Work</button>
+    <button type="button" data-go="terminal">Terminal</button>
+    <button type="button" data-go="contact">Contact</button>
+  </nav>
+</header>
+
+<div class="intro">
+  <h1>Data and AI <span>builder.</span></h1>
+  <p>Business intelligence and automation experience across academic, startup and advisory settings, now building machine learning and LLM systems end to end.</p>
+</div>
+
+<div class="dock">
+  <p class="keys" aria-hidden="true"><kbd>A</kbd> about · <kbd>W</kbd> work · <kbd>T</kbd> terminal · <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> projects · <kbd>C</kbd> contact</p>
+  <div class="pills">
+    <a class="pill" href="lofi.html"><svg aria-hidden="true"><use href="#i-doc"/></svg>Text version</a>
+  </div>
+</div>
+
+<div class="tip" id="tip"></div>
+
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <button class="close" type="button" data-close><span>Close</span><i aria-hidden="true"><svg><use href="#i-x"/></svg></i></button>
+  <div class="sheet-scroll" id="sheetBody"></div>
+</aside>
+
+<div class="placard" id="placard" role="region" aria-label="Platform" hidden>
+  <div class="pl-top"><span class="pl-bullet" id="plBullet">1</span><span class="pl-station" id="plStation">SOURCER</span><span class="pl-dots" id="plDots" aria-hidden="true"></span><button type="button" class="pl-fold" id="plFold" aria-expanded="true" aria-controls="placard">Notes</button></div>
+  <div class="pl-text" aria-live="polite"><p class="pl-label" id="plLabel"></p><h2 class="pl-title" id="plTitle"></h2><div class="pl-body" id="plBody"></div><div class="pl-built" id="plBuilt" hidden></div></div>
+  <div class="pl-nav"><button type="button" class="btn" id="plPrev">← Back</button><button type="button" class="btn solid" id="plNext">Next →</button><button type="button" class="btn ghost" data-close>Back on the train</button></div>
+  <p class="pl-hint">Arrow keys or click the poster to roll it on.</p>
+</div>
+
+<div class="term" id="term" role="dialog" aria-modal="true" aria-label="Terminal">
+  <div class="term-bar"><i></i><i></i><i></i><span>marina@nyc ~ zsh</span><button type="button" data-close>esc</button></div>
+  <div class="term-out" id="termOut" aria-live="polite"></div>
+  <form class="term-in" id="termForm" autocomplete="off"><label for="termIn">~ %</label><input id="termIn" spellcheck="false" autocapitalize="off" aria-label="Type a command, or help"></form>
+</div>
+
+<div class="veil" id="veil" aria-hidden="true"></div>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script type="importmap">
+{"imports":{"three":"./assets/vendor/three.module.js","three/addons/environments/RoomEnvironment.js":"./assets/vendor/RoomEnvironment.js"}}
+</script>
+<script type="module" src="site.js?v=20261020i"></script>
+</body>
+</html>

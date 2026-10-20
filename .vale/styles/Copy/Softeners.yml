@@ -1,0 +1,18 @@
+extends: existence
+message: "'%s' softens or pads the sentence. Cut it or give the specific fact."
+level: warning
+ignorecase: true
+tokens:
+  - helps? (you|people|teams)
+  - designed to
+  - aims? to
+  - allows? (you|users|people) to
+  - lets? you
+  - makes? it easy
+  - with ease
+  - really
+  - truly
+  - simply
+  - very
+  - remembers for you
+  - keep in touch
