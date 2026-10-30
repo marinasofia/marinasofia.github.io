@@ -21,7 +21,7 @@ Open `http://127.0.0.1:8018/`. There is no build step and no API key.
 ## Source guide
 
 - `index.html`: the page shell, the sheets for About, Work and Contact, the platform placard and the terminal.
-- `site.js`: the car, the stations, the platform with its four project spots, the trains, and the copy for every panel.
+- `site.js`: the car, the stations, the platform with its three project spots, the trains, and the copy for every panel.
 - `site.css`: the overlays, set in vintage print type on aged paper.
 - `lofi.html`: the same content as a plain page, for quick reading and for browsers without WebGL.
 - `assets/vendor/`: self hosted three.js and GSAP (see Vendored).
@@ -37,7 +37,7 @@ Cache busting is the `?v=` query on `site.css` and `site.js` in `index.html`; bu
 
 ## Accessibility
 
-Reduced motion turns off the camera moves, the swaying car and the trains. Every part of the site is reachable from the keyboard: A, W, T and C open About, Work, the terminal and Contact, 1 2 3 4 open the projects, L opens the text version, the arrow keys move through a project, and Esc returns to the car. The text version has everything without the 3D scene. On touch screens a one time hint says what to tap.
+Reduced motion turns off the camera moves, the swaying car and the trains. Every part of the site is reachable from the keyboard: A, W, T and C open About, Work, the terminal and Contact, 1 2 3 open the projects, L opens the text version, the arrow keys move through a project, and Esc returns to the car. The text version has everything without the 3D scene. On touch screens a one time hint says what to tap.
 
 ## Checks
 

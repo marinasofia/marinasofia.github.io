@@ -14,9 +14,9 @@ const INK = '#141b25';
 /* ================= content ================= */
 const LABEL = {
   about: ['About', 'Today\'s paper'], work: ['Work', 'Strip map'], terminal: ['Terminal', 'Sign'], contact: ['Contact', 'Payphone'],
-  sourcer: ['01 Sourcer', 'Lead engine'], knowledge: ['02 Knowledge Assistant', 'Cite or abstain'], plan: ['03 The Plan Committee', 'Agents pick a night out'], rekindle: ['04 Rekindle', 'iMessage agent']
+  sourcer: ['01 Sourcer', 'Lead engine'], knowledge: ['02 Knowledge Assistant', 'Cite or abstain'], rekindle: ['03 Rekindle', 'iMessage agent']
 };
-const KIND = { about: 'sheet', work: 'sheet', contact: 'sheet', sourcer: 'platform', knowledge: 'platform', plan: 'platform', rekindle: 'platform', terminal: 'term' };
+const KIND = { about: 'sheet', work: 'sheet', contact: 'sheet', sourcer: 'platform', knowledge: 'platform', rekindle: 'platform', terminal: 'term' };
 
 const nextUp = (id, n, title) => `<button type="button" class="next-up" data-go="${id}"><span><small>Next · ${n}</small><b>${title}</b></span><i aria-hidden="true">→</i></button>`;
 const HTML = {
@@ -42,7 +42,6 @@ const HTML = {
     <ol class="stops side">
       <li><i aria-hidden="true"></i><button type="button" data-go="sourcer"><b>Sourcer</b><time>2026 · transfer here</time><small>A lead engine that reads 405 career sites every morning.</small></button></li>
       <li><i aria-hidden="true"></i><button type="button" data-go="knowledge"><b>Knowledge Assistant</b><time>2026 · transfer here</time><small>Policy answers that cite the exact passage, or refuse.</small></button></li>
-      <li><i aria-hidden="true"></i><button type="button" data-go="plan"><b>The Plan Committee</b><time>2026 · transfer here</time><small>AI agents argue in a group chat and agree on one real NYC or London night out. Live demo.</small></button></li>
       <li><i aria-hidden="true"></i><button type="button" data-go="rekindle"><b>Rekindle</b><time>2026 · private project</time><small>An iMessage agent that texts you first. 0.906 ROC AUC decay model.</small></button></li>
       <li><i aria-hidden="true"></i><a href="https://github.com/marinasofia/statement-agent" target="_blank" rel="noopener"><b>Statement Agent</b><time>Code on GitHub ↗</time><small>LangGraph agent that extracts PDF bank statements to Excel and trusts a number only when the balances reconcile.</small></a></li>
       <li><i aria-hidden="true"></i><a href="https://github.com/marinasofia/bank-churn-model" target="_blank" rel="noopener"><b>Bank Churn Model</b><time>Code on GitHub ↗</time><small>Class weighted logistic regression with a fairness audit by gender and income.</small></a></li>
@@ -75,7 +74,7 @@ const LINES = {
     ],
   },
   rekindle: {
-    bullet: '4', color: '#a8321f', name: 'REKINDLE', sub: 'IMESSAGE AGENT', next: 'sourcer',
+    bullet: '3', color: '#a8321f', name: 'REKINDLE', sub: 'IMESSAGE AGENT', next: 'sourcer',
     stack: ['TypeScript', 'Python', 'scikit-learn', 'Supabase', 'Postgres', 'Claude'], private: 'Private project',
     proof: [['0.906', 'ROC AUC on people it never saw'], ['112,137', 'moments tested'], ['2 a day', 'check ins at most']],
     stops: [
@@ -88,7 +87,7 @@ const LINES = {
     ],
   },
   knowledge: {
-    bullet: '2', color: '#2f6b45', name: 'KNOWLEDGE ASSISTANT', sub: 'CITE OR ABSTAIN', next: 'plan',
+    bullet: '2', color: '#2f6b45', name: 'KNOWLEDGE ASSISTANT', sub: 'CITE OR ABSTAIN', next: 'rekindle',
     stack: ['Python', 'FastAPI', 'PostgreSQL', 'pgvector', 'React', 'Claude'], code: 'https://github.com/marinasofia/knowledge-assistant',
     proof: [['10 / 10', 'unanswerable questions refused'], ['25 / 25', 'answerable questions answered'], ['64 ms', 'median answer under load']],
     stops: [
@@ -98,20 +97,6 @@ const LINES = {
         body: '<p>Search finds the passages first. If they don\'t cover the question, it refuses. If two policies give different answers, it shows both until an admin decides which one wins. With Claude turned on, every claim has to cite an exact quote.</p><p>Hybrid semantic search scored a little higher, but a significance test showed the gap was noise, so the simpler keyword search stays the default.</p>' },
       { label: 'The proof', title: 'Tested like a product.', art: 'proof',
         body: '<p>60 labelled questions with a held out set, and the refuse threshold picked from a measured curve. Every workspace is locked twice, in the app and in the database itself. 85 backend tests, 8 browser tests, prompt injection tests and a written threat model run in CI.</p>' },
-    ],
-  },
-  plan: {
-    bullet: '3', color: '#b7791f', name: 'THE PLAN COMMITTEE', sub: 'AGENTS PICK A NIGHT OUT', next: 'rekindle',
-    stack: ['JavaScript', 'Python', 'NYC Open Data', 'OpenStreetMap', 'Groq', 'Cloudflare Pages'],
-    code: 'https://github.com/marinasofia/plan-committee', live: 'https://plan-committee.pages.dev',
-    proof: [['125', 'hand picked NYC spots, 28 in London'], ['1,300+', 'places refreshed daily'], ['0', 'dependencies, hash only CSP']],
-    stops: [
-      { label: 'The idea', title: 'The group chat argues. One plan comes out.', art: 'chat',
-        body: '<p>Planning a night out usually ends in a group chat that agrees on nothing. The Plan Committee gives each person an AI agent that fights for them. The agents argue in front of you and settle on one real place in New York or London that is open tonight.</p>' },
-      { label: 'How it works', title: 'One file, no server, your own free key.', art: 'pipeline',
-        body: '<p>The whole app is one HTML file that runs in the browser with the user\'s own free AI key. 125 hand picked spots live inside it and always rank first. A daily pipeline adds more than 1,300 places from NYC Open Data and OpenStreetMap, drops closed places and chains, and tags each new place with a free model exactly once.</p>' },
-      { label: 'The proof', title: 'Free to run, hard to break.', art: 'proof',
-        body: '<p>No paid services and no dependencies to audit. The page runs only the one inline script whose hash is in its Content Security Policy, and CI fails if the hash drifts. AI replies, share links and map data are all treated as untrusted and escaped before they reach the page. Without a key it still runs, with scripted agents over the real shortlist.</p>' },
     ],
   },
 };
@@ -150,7 +135,7 @@ function setStop(id, i) {
   // the last panel says what it's built with, as line bullets, and where to read the code
   const built = $('#plBuilt');
   built.hidden = !last;
-  if (last) built.innerHTML = `<p class="pl-label">Built with</p><ul>${line.stack.map((t) => `<li style="--c:${line.color}">${t}</li>`).join('')}</ul>${line.code ? `<a href="${line.code}" target="_blank" rel="noopener">Read the code on GitHub ↗</a>` : ''}${line.live ? `<a href="${line.live}" target="_blank" rel="noopener">Open the live demo ↗</a>` : ''}${line.private ? `<p class="pl-private">${line.private}, demo on request.</p>` : ''}`;
+  if (last) built.innerHTML = `<p class="pl-label">Built with</p><ul>${line.stack.map((t) => `<li style="--c:${line.color}">${t}</li>`).join('')}</ul>${line.code ? `<a href="${line.code}" target="_blank" rel="noopener">Read the code on GitHub ↗</a>` : ''}${line.private ? `<p class="pl-private">${line.private}, demo on request.</p>` : ''}`;
   $('#plPrev').disabled = i === 0;
   const nx = $('#plNext');
   if (last) { const n = LINES[line.next]; nx.textContent = `Next, ${n.name.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())} →`; nx.dataset.go = line.next; }
@@ -220,7 +205,7 @@ document.addEventListener('click', (e) => {
   const b = e.target.closest('[data-go]'); if (!b) return;
   e.preventDefault(); navigate(b.dataset.go || null);
 });
-const KEYS = { a: 'about', w: 'work', t: 'terminal', c: 'contact', 1: 'sourcer', 2: 'knowledge', 3: 'plan', 4: 'rekindle' };
+const KEYS = { a: 'about', w: 'work', t: 'terminal', c: 'contact', 1: 'sourcer', 2: 'knowledge', 3: 'rekindle' };
 addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && open) { e.preventDefault(); navigate(null); return; }
   if (e.altKey || e.metaKey || e.ctrlKey) return;
@@ -268,8 +253,8 @@ const CMDS = {
   help: () => print(`<span class="a">Commands</span>
   <span class="p">whoami</span>             who I am, in two lines
   <span class="p">ls</span>                 what's on this machine
-  <span class="p">projects</span>           the four projects
-  <span class="p">open</span> <span class="d">name</span>          open sourcer, knowledge, plan-committee, rekindle, work, about or contact
+  <span class="p">projects</span>           the three projects
+  <span class="p">open</span> <span class="d">name</span>          open sourcer, knowledge, rekindle, work, about or contact
   <span class="p">ask</span> <span class="d">question</span>     ask the knowledge assistant a sample question
   <span class="p">work</span>               experience, in order
   <span class="p">contact</span>            how to reach me
@@ -278,10 +263,9 @@ const CMDS = {
   whoami: () => print(`Marina Martin. Data analytics and applied AI, New York.
 BBA in Computer Information Systems, minor in Computer Science, graduating 2027.`),
   ls: (a) => a[0] && a[0].startsWith('proj') ? CMDS.projects() : print(`about.txt   work.txt   contact.txt   <span class="a">projects/</span>`),
-  projects: () => print(`<span class="a">sourcer/</span>          lead engine, 405 career sites read every morning   ${goBtn('sourcer', 'open')}
-<span class="a">knowledge/</span>        policy answers that cite the passage, or refuse   ${goBtn('knowledge', 'open')}
-<span class="a">plan-committee/</span>   agents argue in a group chat and pick one real night out   ${goBtn('plan', 'open')}
-<span class="a">rekindle/</span>         iMessage agent, 0.906 ROC AUC decay model, private project   ${goBtn('rekindle', 'open')}`),
+  projects: () => print(`<span class="a">sourcer/</span>     lead engine, 405 career sites read every morning   ${goBtn('sourcer', 'open')}
+<span class="a">knowledge/</span>   policy answers that cite the passage, or refuse   ${goBtn('knowledge', 'open')}
+<span class="a">rekindle/</span>    iMessage agent, 0.906 ROC AUC decay model, private project   ${goBtn('rekindle', 'open')}`),
   work: () => print(`2026  Data Analytics Resident, NYC Tech Talent Pipeline
 2026  Data &amp; AI Analyst, GHA (M&amp;A advisory)
 2024  Data Analytics Intern, Columbia University Irving Medical Center
@@ -299,8 +283,8 @@ Rules go first and the model goes last.`);
   },
   resume: () => print(`No resume here. Message me on <a href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>.`),
   open: (a) => {
-    const n = (a[0] || '').toLowerCase().replace(/\/$/, '').replace(/^knowledge.*/, 'knowledge').replace(/^(the-?)?plan.*|^committee$/, 'plan');
-    if (!KIND[n] || n === 'terminal') return print(`open: ${esc(a[0] || '')}: unknown. Try sourcer, knowledge, plan-committee, rekindle, work, about or contact.`, 'e');
+    const n = (a[0] || '').toLowerCase().replace(/\/$/, '').replace(/^knowledge.*/, 'knowledge');
+    if (!KIND[n] || n === 'terminal') return print(`open: ${esc(a[0] || '')}: unknown. Try sourcer, knowledge, rekindle, work, about or contact.`, 'e');
     print(`<span class="d">opening ${n}</span>`); setTimeout(() => navigate(n), 350);
   },
   ask: async (a) => {
@@ -318,12 +302,12 @@ Rules go first and the model goes last.`);
   stops: () => CMDS.work(),
   sudo: () => print(`Permission denied. LinkedIn works better: <a href="${LINKEDIN}" target="_blank" rel="noopener">marinasofiaml</a>`, 'e'),
 };
-CMDS.sourcer = () => CMDS.open(['sourcer']); CMDS.rekindle = () => CMDS.open(['rekindle']); CMDS.knowledge = () => CMDS.open(['knowledge']); CMDS.plan = () => CMDS.open(['plan']);
+CMDS.sourcer = () => CMDS.open(['sourcer']); CMDS.rekindle = () => CMDS.open(['rekindle']); CMDS.knowledge = () => CMDS.open(['knowledge']);
 CMDS.about = () => CMDS.open(['about']); CMDS.pwd = () => print('~'); CMDS['?'] = CMDS.help;
 CMDS.cd = (a) => { const n = (a[0] || '').replace(/^\.\//, ''); if (!n || n === '~' || n === '..') return print('~'); CMDS.open([n]); };
-CMDS.man = CMDS.help; CMDS.ls = ((ls) => (a) => (a[0] && /^(sourcer|rekindle|knowledge|plan|committee)/.test(a[0]) ? CMDS.open(a) : ls(a)))(CMDS.ls);
-// forgive the way people actually type: "sourcer/", "./rekindle", "Knowledge Assistant", "cd sourcer", "plan-committee"
-const ALIAS = { 'knowledge-assistant': 'knowledge', knowledgeassistant: 'knowledge', assistant: 'knowledge', rag: 'knowledge', 'plan-committee': 'plan', 'the-plan-committee': 'plan', plancommittee: 'plan', committee: 'plan', resume: 'resume', 'resume.pdf': 'resume', projects: 'projects', 'projects/': 'projects' };
+CMDS.man = CMDS.help; CMDS.ls = ((ls) => (a) => (a[0] && /^(sourcer|rekindle|knowledge)/.test(a[0]) ? CMDS.open(a) : ls(a)))(CMDS.ls);
+// forgive the way people actually type: "sourcer/", "./rekindle", "Knowledge Assistant", "cd sourcer"
+const ALIAS = { 'knowledge-assistant': 'knowledge', knowledgeassistant: 'knowledge', assistant: 'knowledge', rag: 'knowledge', resume: 'resume', 'resume.pdf': 'resume', projects: 'projects', 'projects/': 'projects' };
 function normalize(word) { const w = word.toLowerCase().replace(/^\.\//, '').replace(/\/+$/, '').replace(/\.txt$/, ''); return ALIAS[w] || w; }
 tform.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -334,7 +318,6 @@ tform.addEventListener('submit', (e) => {
   const words = raw.split(/\s+/);
   let [c, ...a] = words;
   if (/^knowledge assistant$/i.test(raw)) { c = 'knowledge'; a = []; }
-  if (/^(the )?plan committee$/i.test(raw)) { c = 'plan'; a = []; }
   const name = normalize(c);
   const fn = CMDS[name] || (['work', 'about', 'contact'].includes(name) ? CMDS[name] : null);
   if (fn) { fn(a); return; }
@@ -715,7 +698,7 @@ function buildScene() {
     const g = groups[id][0]; g.getWorldPosition(wp);
     const n = g.userData.n.clone();
     const sheetSide = KIND[id] === 'sheet' && innerWidth > 820;
-    const d = { sourcer: .95, rekindle: .95, knowledge: .95, plan: .95, work: .95, terminal: 1.0, contact: .8, about: .7 }[id];
+    const d = { sourcer: .95, rekindle: .95, knowledge: .95, work: .95, terminal: 1.0, contact: .8, about: .7 }[id];
     const p = wp.clone().addScaledVector(n, d);
     if (id === 'about') p.add(new THREE.Vector3(0, 0, .35));
     const right = sheetSide ? .26 * d : 0;
@@ -1005,34 +988,6 @@ function buildScene() {
       x.fillStyle = line.color; x.fillRect(80, py + 200, 5, 50);
       x.globalAlpha = 1;
     },
-    // one agent per person argues in the group chat, then the committee settles on one plan
-    chat(x, line, y0, a) {
-      const msgs = [['Sam\'s agent', 'West Village, somewhere we can walk from after dinner.', false], ['Priya\'s agent', 'Half of those close at ten. Check the hours first.', false], ['Leo\'s agent', 'Under $60 a head or I\'m out, so no tasting menus.', false], ['The committee', 'Agreed: dinner at 7, then a jazz set two blocks over.', true]];
-      msgs.forEach(([who, text, final], i) => {
-        const t = ease(a * 2.4 - i * .5); if (t <= 0) return;
-        const y = y0 + i * 135, bx = final ? 60 : 60 + (i % 2) * 120, bw = W2 - 240;
-        x.globalAlpha = t;
-        x.fillStyle = final ? line.color : '#fbf7ec'; x.fillRect(bx, y, final ? W2 - 120 : bw, 104);
-        if (!final) { x.strokeStyle = 'rgba(31,27,22,.3)'; x.lineWidth = 2; x.strokeRect(bx, y, bw, 104); }
-        x.fillStyle = final ? '#f3ecdc' : line.color; x.font = '700 22px "Courier Prime", monospace'; x.fillText(who.toUpperCase(), bx + 22, y + 32);
-        x.fillStyle = final ? '#f3ecdc' : '#1f1b16'; x.font = '400 27px "Libre Caslon Text", Georgia'; wrapText(x, text, (final ? W2 - 120 : bw) - 44).slice(0, 2).forEach((l, k) => x.fillText(l, bx + 22, y + 66 + k * 30));
-        x.globalAlpha = 1;
-      });
-    },
-    // the daily pipeline: open data and map places in, closed places and chains out, each place tagged once
-    pipeline(x, line, y0, a) {
-      const steps = [['NYC Open Data', 'inspections, last 12 months'], ['OpenStreetMap', 'places, via Overpass'], ['Rules', 'closed places and chains drop out'], ['Free model', 'tags each new place once'], ['spots.json', 'refreshed every day']];
-      steps.forEach(([k, d], i) => {
-        const t = ease(a * 2 - i * .35), lastRow = i === steps.length - 1; if (t <= 0) return;
-        const y = y0 + i * 104; x.globalAlpha = t;
-        x.fillStyle = lastRow ? line.color : '#fbf7ec'; x.fillRect(60, y, W2 - 120, 76);
-        x.strokeStyle = 'rgba(31,27,22,.3)'; x.lineWidth = 2; x.strokeRect(60, y, W2 - 120, 76);
-        x.fillStyle = lastRow ? '#f3ecdc' : '#1f1b16'; x.font = '700 26px "Courier Prime", monospace'; x.fillText(k.toUpperCase(), 84, y + 47);
-        x.font = '400 26px "Libre Caslon Text", Georgia'; x.textAlign = 'right'; x.fillText(d, W2 - 84, y + 47); x.textAlign = 'left';
-        if (!lastRow) { x.fillStyle = '#1f1b16'; x.fillRect(W2 / 2 - 2, y + 76, 4, 28); }
-        x.globalAlpha = 1;
-      });
-    },
     // three numbers, set big
     proof(x, line, y0, a) {
       line.proof.forEach(([n, l], i) => { const t = ease(a * 1.8 - i * .2), y = y0 + 30 + i * 160; x.globalAlpha = t; x.fillStyle = line.color; x.font = '400 104px "Old Standard TT", Georgia'; x.fillText(countUp(n, ease(a * 1.4 - i * .2)), 60, y + 70); x.fillStyle = '#1f1b16'; x.font = '400 28px "Courier Prime", monospace'; wrapText(x, l.toUpperCase(), 380).forEach((s, k) => x.fillText(s, W2 - 440, y + 28 + k * 36)); x.globalAlpha = 1; });
@@ -1260,17 +1215,13 @@ function buildScene() {
       .to(trainA.position, { x: 70, duration: 4.5, ease: 'power2.in' }, '+=1');
   }
 
-  /* ---------- four places on the platform, one per project ---------- */
+  /* ---------- three places on the platform, one per project ---------- */
   // Sourcer stands mid platform. Rekindle is the ad across the tracks, seen from the edge,
   // with rats working the trackbed. Knowledge Assistant hangs on the wall by the newsstand.
-  // The Plan Committee stands further along the platform, between Rekindle and the newsstand.
   const SPOTS = {
     sourcer: { pos: [2.0, 0, -3.35], ry: null, scale: 1, base: true,
       desk: { px: -2.0, py: 1.62, pz: -2.15, lx: 3.1, ly: 1.45, lz: -3.6, fov: 50 },
       mob: { px: -1.4, py: 1.6, pz: -2.25, lx: 2.0, ly: 1.75, lz: -3.35, fov: 64 } },
-    plan: { pos: [10.1, 0, -3.35], ry: null, scale: 1, base: true,
-      desk: { px: 6.1, py: 1.62, pz: -2.15, lx: 11.2, ly: 1.45, lz: -3.6, fov: 50 },
-      mob: { px: 6.7, py: 1.6, pz: -2.25, lx: 10.1, ly: 1.75, lz: -3.35, fov: 64 } },
     rekindle: { pos: [6.3, -.78, 1.9], ry: Math.PI, scale: 1.35, base: false,
       desk: { px: 5.0, py: 1.55, pz: -1.85, lx: 5.65, ly: .78, lz: 1.0, fov: 58 },
       mob: { px: 6.3, py: 1.66, pz: -2.1, lx: 6.3, ly: .75, lz: 1.6, fov: 72 } },

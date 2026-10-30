@@ -59,7 +59,7 @@ class SiteTests(unittest.TestCase):
 
     def test_every_station_is_in_the_text_version(self):
         lines = project_lines()
-        self.assertGreaterEqual(len(lines), 4)
+        self.assertGreaterEqual(len(lines), 3)
         lofi = (ROOT / 'lofi.html').read_text().lower()
         for name in lines:
             self.assertIn(name, lofi, f'{name} is a station in site.js but not in lofi.html')
