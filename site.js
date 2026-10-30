@@ -14,9 +14,9 @@ const INK = '#141b25';
 /* ================= content ================= */
 const LABEL = {
   about: ['About', 'Today\'s paper'], work: ['Work', 'Strip map'], terminal: ['Terminal', 'Sign'], contact: ['Contact', 'Payphone'],
-  sourcer: ['01 Sourcer', 'Lead engine'], rekindle: ['02 Rekindle', 'iMessage agent'], knowledge: ['03 Knowledge Assistant', 'Cite or abstain']
+  sourcer: ['01 Sourcer', 'Lead engine'], knowledge: ['02 Knowledge Assistant', 'Cite or abstain'], rekindle: ['03 Rekindle', 'iMessage agent']
 };
-const KIND = { about: 'sheet', work: 'sheet', contact: 'sheet', sourcer: 'platform', rekindle: 'platform', knowledge: 'platform', terminal: 'term' };
+const KIND = { about: 'sheet', work: 'sheet', contact: 'sheet', sourcer: 'platform', knowledge: 'platform', rekindle: 'platform', terminal: 'term' };
 
 const nextUp = (id, n, title) => `<button type="button" class="next-up" data-go="${id}"><span><small>Next · ${n}</small><b>${title}</b></span><i aria-hidden="true">→</i></button>`;
 const HTML = {
@@ -41,10 +41,12 @@ const HTML = {
     <div class="strip-head side"><span class="bullet">P</span><span>Project line</span><h3>Built along the way</h3></div>
     <ol class="stops side">
       <li><i aria-hidden="true"></i><button type="button" data-go="sourcer"><b>Sourcer</b><time>2026 · transfer here</time><small>A lead engine that reads 405 career sites every morning.</small></button></li>
-      <li><i aria-hidden="true"></i><button type="button" data-go="rekindle"><b>Rekindle</b><time>2026 · transfer here</time><small>An iMessage agent that texts you first. 0.906 ROC AUC decay model.</small></button></li>
       <li><i aria-hidden="true"></i><button type="button" data-go="knowledge"><b>Knowledge Assistant</b><time>2026 · transfer here</time><small>Policy answers that cite the exact passage, or refuse.</small></button></li>
+      <li><i aria-hidden="true"></i><button type="button" data-go="rekindle"><b>Rekindle</b><time>2026 · private project</time><small>An iMessage agent that texts you first. 0.906 ROC AUC decay model.</small></button></li>
+      <li><i aria-hidden="true"></i><a href="https://github.com/marinasofia/statement-agent" target="_blank" rel="noopener"><b>Statement Agent</b><time>Code on GitHub ↗</time><small>LangGraph agent that extracts PDF bank statements to Excel and trusts a number only when the balances reconcile.</small></a></li>
+      <li><i aria-hidden="true"></i><a href="https://github.com/marinasofia/bank-churn-model" target="_blank" rel="noopener"><b>Bank Churn Model</b><time>Code on GitHub ↗</time><small>Class weighted logistic regression with a fairness audit by gender and income.</small></a></li>
     </ol>
-    <p class="strip-foot">Resume on request, through LinkedIn.</p>
+    <p class="strip-foot">Message me on LinkedIn.</p>
   </div>`,
   contact: `<span class="kick">Contact</span>
     <h2 class="h-page" id="sheetTitle">Give me <em>a ring.</em></h2>
@@ -59,8 +61,8 @@ const HTML = {
 // the reasoning, and on the last panel what it's built with.
 const LINES = {
   sourcer: {
-    bullet: '1', color: '#2c4d78', name: 'SOURCER', sub: 'LEAD ENGINE', next: 'rekindle',
-    stack: ['Python', 'SQL', 'Claude API', 'LangGraph', 'scikit-learn', 'MCP'],
+    bullet: '1', color: '#2c4d78', name: 'SOURCER', sub: 'LEAD ENGINE', next: 'knowledge',
+    stack: ['Python', 'SQL', 'Claude API', 'LangGraph', 'scikit-learn', 'MCP'], code: 'https://github.com/marinasofia/sourcer',
     proof: [['813,961', 'postings read in 57 runs'], ['16 / 20', 'top picks are jobs I\'d apply to'], ['26¢', 'for a daily run of 15,000']],
     stops: [
       { label: 'The idea', title: '40,118 postings in. The right few out.', art: 'sites',
@@ -72,8 +74,8 @@ const LINES = {
     ],
   },
   rekindle: {
-    bullet: '2', color: '#a8321f', name: 'REKINDLE', sub: 'IMESSAGE AGENT', next: 'knowledge',
-    stack: ['TypeScript', 'Python', 'scikit-learn', 'Supabase', 'Postgres', 'Claude'],
+    bullet: '3', color: '#a8321f', name: 'REKINDLE', sub: 'IMESSAGE AGENT', next: 'sourcer',
+    stack: ['TypeScript', 'Python', 'scikit-learn', 'Supabase', 'Postgres', 'Claude'], private: 'Private project',
     proof: [['0.906', 'ROC AUC on people it never saw'], ['112,137', 'moments tested'], ['2 a day', 'check ins at most']],
     stops: [
       { label: 'The idea', title: 'Notices when people go quiet.', art: 'quiet',
@@ -81,11 +83,11 @@ const LINES = {
       { label: 'How it decides', title: 'A nudge only when a silence is unusual.', art: 'decay',
         body: '<p>A model compares each silence with how often the two of you usually talk, so a quiet month means something for a close friend and nothing for an old classmate.</p><p>The agent asks for consent before any model call, and text other people wrote can\'t give it orders.</p>' },
       { label: 'The proof', title: 'Tested on people it never saw.', art: 'proof',
-        body: '<p>The model was scored on people held out of training entirely, and its risk scores are tuned so a 70% risk means about 70%. Drafts are judged by how many actually get sent.</p>' },
+        body: '<p>The model was scored on people held out of training entirely, and its risk scores are tuned so a 70% risk means about 70%. Drafts are judged by how many actually get sent.</p><p>These numbers are measured inside the private project. Demo on request.</p>' },
     ],
   },
   knowledge: {
-    bullet: '3', color: '#2f6b45', name: 'KNOWLEDGE ASSISTANT', sub: 'CITE OR ABSTAIN', next: 'sourcer',
+    bullet: '2', color: '#2f6b45', name: 'KNOWLEDGE ASSISTANT', sub: 'CITE OR ABSTAIN', next: 'rekindle',
     stack: ['Python', 'FastAPI', 'PostgreSQL', 'pgvector', 'React', 'Claude'], code: 'https://github.com/marinasofia/knowledge-assistant',
     proof: [['10 / 10', 'unanswerable questions refused'], ['25 / 25', 'answerable questions answered'], ['64 ms', 'median answer under load']],
     stops: [
@@ -133,7 +135,7 @@ function setStop(id, i) {
   // the last panel says what it's built with, as line bullets, and where to read the code
   const built = $('#plBuilt');
   built.hidden = !last;
-  if (last) built.innerHTML = `<p class="pl-label">Built with</p><ul>${line.stack.map((t) => `<li style="--c:${line.color}">${t}</li>`).join('')}</ul>${line.code ? `<a href="${line.code}" target="_blank" rel="noopener">Read the code on GitHub ↗</a>` : ''}`;
+  if (last) built.innerHTML = `<p class="pl-label">Built with</p><ul>${line.stack.map((t) => `<li style="--c:${line.color}">${t}</li>`).join('')}</ul>${line.code ? `<a href="${line.code}" target="_blank" rel="noopener">Read the code on GitHub ↗</a>` : ''}${line.private ? `<p class="pl-private">${line.private}, demo on request.</p>` : ''}`;
   $('#plPrev').disabled = i === 0;
   const nx = $('#plNext');
   if (last) { const n = LINES[line.next]; nx.textContent = `Next, ${n.name.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())} →`; nx.dataset.go = line.next; }
@@ -203,7 +205,7 @@ document.addEventListener('click', (e) => {
   const b = e.target.closest('[data-go]'); if (!b) return;
   e.preventDefault(); navigate(b.dataset.go || null);
 });
-const KEYS = { a: 'about', w: 'work', t: 'terminal', c: 'contact', 1: 'sourcer', 2: 'rekindle', 3: 'knowledge' };
+const KEYS = { a: 'about', w: 'work', t: 'terminal', c: 'contact', 1: 'sourcer', 2: 'knowledge', 3: 'rekindle' };
 addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && open) { e.preventDefault(); navigate(null); return; }
   if (e.altKey || e.metaKey || e.ctrlKey) return;
@@ -229,6 +231,15 @@ addEventListener('keydown', (e) => {
   else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
 });
 
+// on a touch screen there is nothing to hover, so a one time hint says what to tap; it goes on the first tap
+const touchHint = $('#touchHint');
+if (touchHint && matchMedia('(hover: none)').matches) {
+  let seen = false; try { seen = localStorage.getItem('mm-touch-hint') === '1'; } catch (e) { seen = false; }
+  if (!seen) {
+    touchHint.hidden = false;
+    $('#gl').addEventListener('pointerdown', () => { touchHint.hidden = true; try { localStorage.setItem('mm-touch-hint', '1'); } catch (e) { /* storage blocked: the hint shows again next visit */ } }, { once: true });
+  }
+}
 function showTip(id, x, y) { tip.innerHTML = `${LABEL[id][0]}<em>${LABEL[id][1]}</em>`; tip.style.left = x + 'px'; tip.style.top = y + 'px'; tip.classList.add('on'); }
 function hideTip() { tip.classList.remove('on'); }
 
@@ -243,7 +254,7 @@ const CMDS = {
   <span class="p">whoami</span>             who I am, in two lines
   <span class="p">ls</span>                 what's on this machine
   <span class="p">projects</span>           the three projects
-  <span class="p">open</span> <span class="d">name</span>          open sourcer, rekindle, knowledge, work, about or contact
+  <span class="p">open</span> <span class="d">name</span>          open sourcer, knowledge, rekindle, work, about or contact
   <span class="p">ask</span> <span class="d">question</span>     ask the knowledge assistant a sample question
   <span class="p">work</span>               experience, in order
   <span class="p">contact</span>            how to reach me
@@ -251,10 +262,10 @@ const CMDS = {
   <span class="p">exit</span>               back to the train`),
   whoami: () => print(`Marina Martin. Data analytics and applied AI, New York.
 BBA in Computer Information Systems, minor in Computer Science, graduating 2027.`),
-  ls: (a) => a[0] && a[0].startsWith('proj') ? CMDS.projects() : print(`about.txt   work.txt   contact.txt   <span class="a">projects/</span>   resume.pdf`),
+  ls: (a) => a[0] && a[0].startsWith('proj') ? CMDS.projects() : print(`about.txt   work.txt   contact.txt   <span class="a">projects/</span>`),
   projects: () => print(`<span class="a">sourcer/</span>     lead engine, 405 career sites read every morning   ${goBtn('sourcer', 'open')}
-<span class="a">rekindle/</span>    iMessage agent, 0.906 ROC AUC decay model   ${goBtn('rekindle', 'open')}
-<span class="a">knowledge/</span>   policy answers that cite the passage, or refuse   ${goBtn('knowledge', 'open')}`),
+<span class="a">knowledge/</span>   policy answers that cite the passage, or refuse   ${goBtn('knowledge', 'open')}
+<span class="a">rekindle/</span>    iMessage agent, 0.906 ROC AUC decay model, private project   ${goBtn('rekindle', 'open')}`),
   work: () => print(`2026  Data Analytics Resident, NYC Tech Talent Pipeline
 2026  Data &amp; AI Analyst, GHA (M&amp;A advisory)
 2024  Data Analytics Intern, Columbia University Irving Medical Center
@@ -270,10 +281,10 @@ Rules go first and the model goes last.`);
     if (f === 'resume.pdf' || f === 'resume') return CMDS.resume();
     print(`cat: ${esc(a[0] || '')}: No such file. Try <span class="p">ls</span>.`, 'e');
   },
-  resume: () => print(`resume.pdf is on request. Message me on <a href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>.`),
+  resume: () => print(`No resume here. Message me on <a href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>.`),
   open: (a) => {
     const n = (a[0] || '').toLowerCase().replace(/\/$/, '').replace(/^knowledge.*/, 'knowledge');
-    if (!KIND[n] || n === 'terminal') return print(`open: ${esc(a[0] || '')}: unknown. Try sourcer, rekindle, knowledge, work, about or contact.`, 'e');
+    if (!KIND[n] || n === 'terminal') return print(`open: ${esc(a[0] || '')}: unknown. Try sourcer, knowledge, rekindle, work, about or contact.`, 'e');
     print(`<span class="d">opening ${n}</span>`); setTimeout(() => navigate(n), 350);
   },
   ask: async (a) => {
@@ -292,8 +303,8 @@ Rules go first and the model goes last.`);
   sudo: () => print(`Permission denied. LinkedIn works better: <a href="${LINKEDIN}" target="_blank" rel="noopener">marinasofiaml</a>`, 'e'),
 };
 CMDS.sourcer = () => CMDS.open(['sourcer']); CMDS.rekindle = () => CMDS.open(['rekindle']); CMDS.knowledge = () => CMDS.open(['knowledge']);
-CMDS.about = () => CMDS.open(['about']); CMDS.pwd = () => print('/Users/marina'); CMDS['?'] = CMDS.help;
-CMDS.cd = (a) => { const n = (a[0] || '').replace(/^\.\//, ''); if (!n || n === '~' || n === '..') return print('/Users/marina'); CMDS.open([n]); };
+CMDS.about = () => CMDS.open(['about']); CMDS.pwd = () => print('~'); CMDS['?'] = CMDS.help;
+CMDS.cd = (a) => { const n = (a[0] || '').replace(/^\.\//, ''); if (!n || n === '~' || n === '..') return print('~'); CMDS.open([n]); };
 CMDS.man = CMDS.help; CMDS.ls = ((ls) => (a) => (a[0] && /^(sourcer|rekindle|knowledge)/.test(a[0]) ? CMDS.open(a) : ls(a)))(CMDS.ls);
 // forgive the way people actually type: "sourcer/", "./rekindle", "Knowledge Assistant", "cd sourcer"
 const ALIAS = { 'knowledge-assistant': 'knowledge', knowledgeassistant: 'knowledge', assistant: 'knowledge', rag: 'knowledge', resume: 'resume', 'resume.pdf': 'resume', projects: 'projects', 'projects/': 'projects' };

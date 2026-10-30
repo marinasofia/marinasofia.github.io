@@ -41,7 +41,7 @@ body.in-page::after{opacity:0}
 .brand b{font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:.16em;text-transform:uppercase}
 .brand span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8d9ab0}
 .nav{display:flex;gap:4px}
-.nav button{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;border-radius:6px;color:#c6cfdb;transition:background .25s,color .25s}
+.nav button{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;border-radius:6px;color:#c6cfdb;transition:background .25s,color .25s}
 .nav button:hover,.nav button.hot,.nav button[aria-current="true"]{background:#e9edf3;color:var(--ink)}
 
 .intro{position:fixed;z-index:9;left:24px;bottom:calc(76px + env(safe-area-inset-bottom,0px));max-width:460px;pointer-events:none;transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -54,6 +54,11 @@ body.in-page .intro{opacity:0;transform:translateY(8px)}
 .dock > *{pointer-events:auto}
 .keys{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:#8d9ab0;padding:8px 14px;border-radius:999px;background:rgba(11,17,27,.62);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08)}
 .keys kbd{font-family:inherit;color:#e9edf3}
+/* read by screen readers only: the canvas is decorative */
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+/* touch screens: a one time hint instead of hover tips */
+.hint-touch{display:none}
+@media (hover:none){.hint-touch:not([hidden]){display:block;margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:#e9edf3;padding:8px 14px;border-radius:999px;background:rgba(11,17,27,.62);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12)}}
 .pills{display:flex;gap:8px}
 .pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:9px 14px;border-radius:999px;background:rgba(11,17,27,.62);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);color:#e9edf3;text-decoration:none;transition:background .25s,color .25s,border-color .25s}
 .pill:hover{background:#e9edf3;color:var(--ink);border-color:#e9edf3}
@@ -191,7 +196,7 @@ body.in-page .intro{opacity:0;transform:translateY(8px)}
 .nogl .intro,.nogl .dock .keys{display:none}
 
 @media (max-width:820px){
-  .nav button{padding:7px 8px;font-size:11px;letter-spacing:.08em}
+  .nav button{padding:7px 8px;font-size:12px;letter-spacing:.08em}
   .brand span{display:none}
   .keys{display:none}
   .intro{left:20px;right:20px;bottom:calc(72px + env(safe-area-inset-bottom,0px))}
@@ -280,8 +285,8 @@ body.in-page .intro{opacity:0;transform:translateY(8px)}
 .stops time{display:block;margin-top:4px;font:500 12px/1 var(--stripmono);color:#5a6676;text-transform:uppercase;letter-spacing:.04em}
 .stops small{display:block;margin-top:8px;font:400 14.5px/1.5 var(--strip);color:#3a404a}
 .stops li.next time{color:#d64a32}
-.stops button{display:block;width:100%;text-align:left;padding:0}
-.stops button:hover b{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.stops button,.stops a{display:block;width:100%;text-align:left;padding:0;color:inherit;text-decoration:none}
+.stops button:hover b,.stops a:hover b{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
 .strip-foot{margin:22px 18px 0;font:500 12px/1.5 var(--stripmono);color:#5a6676}
 
 /* ---------- on the platform: a placard with the full text, and a kiosk to try things ---------- */
@@ -349,7 +354,8 @@ body.on-platform::after{opacity:0}
 .pl-built ul{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
 .pl-built li{display:inline-flex;align-items:center;gap:7px;padding:5px 10px 5px 6px;background:#16181c;color:#f3ecdc;font:500 12px/1 Geist,Arial,sans-serif;letter-spacing:.02em;border-radius:999px}
 .pl-built li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c)}
-.pl-built a{display:inline-block;margin-top:12px;font:400 13px/1.4 var(--mono);color:var(--accent)}
+.pl-built a{display:inline-block;margin-top:12px;margin-right:16px;font:400 13px/1.4 var(--mono);color:var(--accent)}
+.pl-private{margin:12px 0 0;font:400 13px/1.4 var(--mono);color:var(--muted)}
 .pl-fold{display:none;margin-left:10px;white-space:nowrap;padding:6px 10px;border:1px solid rgba(243,236,220,.4);color:#f3ecdc;font:700 12px/1 "Courier Prime",monospace;letter-spacing:.06em;background:none}
 @media (max-width:820px){
   .pl-fold{display:inline-block}

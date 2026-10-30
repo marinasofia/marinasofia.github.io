@@ -1,10 +1,20 @@
 """Validate local navigation without a server or third-party packages."""
 from html.parser import HTMLParser
 from pathlib import Path
+import re
 import unittest
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def project_lines():
+    """The LINES entries in site.js: id -> the source text of that entry."""
+    js = (ROOT / 'site.js').read_text()
+    block = re.search(r'\nconst LINES = \{\n(.*?)\n\};\n', js, re.S).group(1)
+    starts = [(m.group(1), m.start()) for m in re.finditer(r'^  (\w+): \{$', block, re.M)]
+    return {name: block[start:(starts[i + 1][1] if i + 1 < len(starts) else len(block))]
+            for i, (name, start) in enumerate(starts)}
 
 
 class Page(HTMLParser):
@@ -46,6 +56,19 @@ class SiteTests(unittest.TestCase):
                 if url.fragment and not url.fragment.startswith('/') and target.suffix == '.html':
                     self.assertIn(unquote(url.fragment), Page(target.read_text()).ids,
                                   f'{path.name}: {link}')
+
+    def test_every_station_is_in_the_text_version(self):
+        lines = project_lines()
+        self.assertGreaterEqual(len(lines), 3)
+        lofi = (ROOT / 'lofi.html').read_text().lower()
+        for name in lines:
+            self.assertIn(name, lofi, f'{name} is a station in site.js but not in lofi.html')
+
+    def test_every_station_says_where_its_code_is(self):
+        for name, src in project_lines().items():
+            has_link = re.search(r"\b(code|live): 'https://", src)
+            self.assertTrue(has_link or 'Private' in src,
+                            f'{name} needs a code or live link, or the word Private')
 
 
 if __name__ == '__main__':

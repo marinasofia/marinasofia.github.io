@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Marina Martin · Data &amp; AI</title>
-<meta name="description" content="Marina Martin, data analytics and applied AI in New York. Experience, three projects with the numbers behind them, and how to reach me.">
+<meta name="description" content="Marina Martin, data analytics and applied AI in New York. Experience, five projects with the numbers behind them, and how to reach me.">
 <meta name="theme-color" content="#f4f6f9">
 <link rel="canonical" href="https://marinasofia.github.io/lofi.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b111b'/%3E%3Ctext x='32' y='42' font-family='Georgia' font-size='28' text-anchor='middle' fill='%23ffcf99'%3EMM%3C/text%3E%3C/svg%3E">
@@ -51,18 +51,22 @@ footer{margin-top:72px;display:flex;justify-content:space-between;gap:16px;flex-
 
 <h2>Projects</h2>
 <ol class="proj">
-  <li><b>Sourcer</b><time>2026</time>
+  <li id="sourcer"><b>Sourcer</b><time>2026</time>
     <p>A lead engine that reads 405 company career sites every morning, rules out what doesn't fit me with plain rules, scores the rest against my profile and texts me the best match. When I apply, it tailors my resume from facts I've approved.</p>
-    <p><strong>In one run on Oct 11 it read 40,118 postings and only 1,801 got past the rules.</strong> Three decisions shaped it. A posting is ruled out only on an explicit signal, because a wrong drop is a job I never see. A hard cost cap is checked before every model call. Every model answer gets one corrective retry, never two. A test set of 322 labelled postings fails the build if any score drops. Code private, walkthrough on request.</p>
+    <p><strong>In one run on Oct 11 it read 40,118 postings and only 1,801 got past the rules.</strong> Three decisions shaped it. A posting is ruled out only on an explicit signal, because a wrong drop is a job I never see. A hard cost cap is checked before every model call. Every model answer gets one corrective retry, never two. A test set of 322 labelled postings fails the build if any score drops. <a href="https://github.com/marinasofia/sourcer">Code on GitHub</a>.</p>
     <p class="chips">Python · SQL · SQLite · Claude API · LangGraph · scikit-learn</p></li>
-  <li><b>Rekindle</b><time>2026</time>
-    <p>Predicts which relationships are fading and texts you first in iMessage. It drafts what to say and sends from your own number only after you reply yes. The agent asks for consent before any model call, handles STOP and PAUSE before the model sees a message, and fences off text other people wrote so a contact can't steer it.</p>
-    <p><strong>0.906 ROC AUC on people the model never saw</strong>, across 112,137 moments. A SEND rate measures which drafts get sent and answered, without storing message text.</p>
-    <p class="chips">TypeScript · Python · scikit-learn · Supabase · Postgres · Claude · iMessage</p></li>
-  <li><b>Knowledge Assistant</b><time>2026</time>
+  <li id="knowledge"><b>Knowledge Assistant</b><time>2026</time>
     <p>A workspace where a team asks questions about its own policies and gets back the exact approved passage that answers them. When two policies disagree it shows both, and when nothing covers the question it refuses instead of guessing.</p>
     <p><strong>10 of 10 unanswerable questions refused, 25 of 25 answerable ones answered</strong>, on 60 labelled questions with a held out set. Every workspace is locked twice, in the app and in Postgres row level security, with 85 backend tests, 8 browser tests and a threat model in CI. <a href="https://github.com/marinasofia/knowledge-assistant">Code on GitHub</a>.</p>
     <p class="chips">Python · FastAPI · PostgreSQL · pgvector · React · Claude</p></li>
+  <li id="rekindle"><b>Rekindle</b><time>2026</time>
+    <p>Predicts which relationships are fading and texts you first in iMessage. It drafts what to say and sends from your own number only after you reply yes. The agent asks for consent before any model call, handles STOP and PAUSE before the model sees a message, and fences off text other people wrote so a contact can't steer it.</p>
+    <p><strong>0.906 ROC AUC on people the model never saw</strong>, across 112,137 moments, measured inside the private project. A SEND rate measures which drafts get sent and answered, without storing message text. Private project, demo on request.</p>
+    <p class="chips">TypeScript · Python · scikit-learn · Supabase · Postgres · Claude · iMessage</p></li>
+  <li id="statement-agent"><b>Statement Agent</b>
+    <p>LangGraph agent that extracts PDF bank statements to Excel and trusts a number only when the balances reconcile. <a href="https://github.com/marinasofia/statement-agent">Code on GitHub</a>.</p></li>
+  <li id="bank-churn-model"><b>Bank Churn Model</b>
+    <p>Class weighted logistic regression with a fairness audit by gender and income. <a href="https://github.com/marinasofia/bank-churn-model">Code on GitHub</a>.</p></li>
 </ol>
 
 <h2>Experience</h2>
@@ -84,7 +88,7 @@ footer{margin-top:72px;display:flex;justify-content:space-between;gap:16px;flex-
 </ol>
 
 <h2>Contact</h2>
-<p>Hiring for a data or AI role, or want a walkthrough of any project? Send me a message on <a href="https://www.linkedin.com/in/marinasofiaml/">LinkedIn</a>. Resume on request.</p>
+<p>Hiring for a data or AI role, or want a walkthrough of any project? Message me on <a href="https://www.linkedin.com/in/marinasofiaml/">LinkedIn</a>.</p>
 
 <footer><span>New York, 2026</span><a href="index.html">Ride the 3D version</a></footer>
 </main>
